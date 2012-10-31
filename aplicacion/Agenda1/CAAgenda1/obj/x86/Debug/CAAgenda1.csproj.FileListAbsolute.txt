@@ -17,3 +17,10 @@ D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\CAAgenda1.e
 D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\CAAgenda1.pdb
 D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\MainWindow.baml
 D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\MainWindow.g.cs
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\bin\Debug\CADAgenda1.dll
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\bin\Debug\CLNAgenda1.dll
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\bin\Debug\Microsoft.Data.Entity.Design.Extensibility.dll
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\bin\Debug\CADAgenda1.pdb
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\bin\Debug\CLNAgenda1.pdb
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\bin\Debug\es\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\bin\Debug\CAAgenda1.exe.config

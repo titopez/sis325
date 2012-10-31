@@ -25,6 +25,7 @@
     <Property Type="Int32" Name="CajaTiempo" Nullable="false" />
     <NavigationProperty Name="Roles" Relationship="ScrumBDModel.RolesDeUnProyecto" FromRole="Proyecto" ToRole="Rol" />
     <NavigationProperty Name="Historias" Relationship="ScrumBDModel.HistoriasDeUnProyecto" FromRole="Proyecto" ToRole="Historia" />
+    <Property Type="String" Name="Incremento" Nullable="false" />
   </EntityType>
   <EntityType Name="Historia">
     <Key>

@@ -28,6 +28,7 @@
     <Property Name="FechaFinalizacion" Type="datetime" Nullable="false" />
     <Property Name="Objetivo" Type="nvarchar(max)" Nullable="false" />
     <Property Name="CajaTiempo" Type="int" Nullable="false" />
+    <Property Name="Incremento" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Historias">
     <Key>
@@ -102,6 +103,7 @@
           <Property Type="Int32" Name="CajaTiempo" Nullable="false" />
           <NavigationProperty Name="Roles" Relationship="ScrumBDModel.RolesDeUnProyecto" FromRole="Proyecto" ToRole="Rol" />
           <NavigationProperty Name="Historias" Relationship="ScrumBDModel.HistoriasDeUnProyecto" FromRole="Proyecto" ToRole="Historia" />
+          <Property Type="String" Name="Incremento" Nullable="false" />
         </EntityType>
         <EntityType Name="Historia">
           <Key>
@@ -164,6 +166,7 @@
           <ScalarProperty Name="FechaFinalizacion" ColumnName="FechaFinalizacion" />
           <ScalarProperty Name="Objetivo" ColumnName="Objetivo" />
           <ScalarProperty Name="CajaTiempo" ColumnName="CajaTiempo" />
+          <ScalarProperty Name="Incremento" ColumnName="Incremento" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -208,16 +211,16 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram Name="ScrumBDModel" >
-        <EntityTypeShape EntityType="ScrumBDModel.Proyecto" Width="1.5" PointX="3.5" PointY="0.5" Height="2.172587890625" />
+        <EntityTypeShape EntityType="ScrumBDModel.Proyecto" Width="1.5" PointX="3.5" PointY="0.5" Height="2.7494921875" />
         <EntityTypeShape EntityType="ScrumBDModel.Historia" Width="1.5" PointX="6.375" PointY="2.25" Height="1.787985026041667" />
         <EntityTypeShape EntityType="ScrumBDModel.Rol" Width="1.5" PointX="0.75" PointY="2.125" Height="1.787985026041667" />
         <AssociationConnector Association="ScrumBDModel.RolesDeUnProyecto">
-          <ConnectorPoint PointX="3.5" PointY="2.4949446614583337" />
-          <ConnectorPoint PointX="2.25" PointY="2.4949446614583337" />
+          <ConnectorPoint PointX="3.5" PointY="2.68724609375" />
+          <ConnectorPoint PointX="2.25" PointY="2.68724609375" />
         </AssociationConnector>
         <AssociationConnector Association="ScrumBDModel.HistoriasDeUnProyecto">
-          <ConnectorPoint PointX="5" PointY="2.6535953776041667" />
-          <ConnectorPoint PointX="6.375" PointY="2.6535953776041667" />
+          <ConnectorPoint PointX="5" PointY="2.74974609375" />
+          <ConnectorPoint PointX="6.375" PointY="2.74974609375" />
         </AssociationConnector>
       </Diagram>
     </edmx:Diagrams>

@@ -10,6 +10,7 @@
           <ScalarProperty Name="FechaFinalizacion" ColumnName="FechaFinalizacion" />
           <ScalarProperty Name="Objetivo" ColumnName="Objetivo" />
           <ScalarProperty Name="CajaTiempo" ColumnName="CajaTiempo" />
+          <ScalarProperty Name="Incremento" ColumnName="Incremento" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

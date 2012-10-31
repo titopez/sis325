@@ -23,6 +23,7 @@
     <Property Name="FechaFinalizacion" Type="datetime" Nullable="false" />
     <Property Name="Objetivo" Type="nvarchar(max)" Nullable="false" />
     <Property Name="CajaTiempo" Type="int" Nullable="false" />
+    <Property Name="Incremento" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Historias">
     <Key>

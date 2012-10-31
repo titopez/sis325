@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,6 +45,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProyectosCLN.cs" />
     <Compile Include="RolesCLN.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CADAgenda1\CADAgenda1.csproj">
+      <Project>{A162A5FE-4DF2-43BA-ACE5-7314D3AA2A22}</Project>
+      <Name>CADAgenda1</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

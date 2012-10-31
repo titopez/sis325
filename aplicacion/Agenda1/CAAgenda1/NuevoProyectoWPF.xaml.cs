@@ -24,6 +24,8 @@ namespace CAAgenda1
         private DateTime fechaIni;
         private DateTime fechaFin;
         private String objetivo;
+        private String incremento;
+        ProyectosCLN pcln = new ProyectosCLN();
         
         public NuevoProyectoWPF()
         {
@@ -35,7 +37,16 @@ namespace CAAgenda1
             nombre = tbNuevoProy.Text;
             fechaIni = DateTime.Parse(dpFechaIni.SelectedDate.ToString());
             fechaFin = DateTime.Parse(dpFechaIni.SelectedDate.ToString());
-            objetivo = tblObjetivoProy.Text;
+            objetivo = tbObjetivo.Text;
+            incremento = tbIncremento.Text;
+            Proyecto p = new Proyecto();
+            p.Nombre = nombre;
+            p.FechaInicio = fechaIni;
+            p.FechaFinalizacion = fechaFin;
+            p.Objetivo = objetivo;
+            p.Incremento = incremento;
+            pcln.crearProyecto(p);          
+
         }
     }
 }

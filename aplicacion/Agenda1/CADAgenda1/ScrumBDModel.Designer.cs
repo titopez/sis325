@@ -373,7 +373,8 @@ namespace CADAgenda1
         /// <param name="fechaFinalizacion">Valor inicial de la propiedad FechaFinalizacion.</param>
         /// <param name="objetivo">Valor inicial de la propiedad Objetivo.</param>
         /// <param name="cajaTiempo">Valor inicial de la propiedad CajaTiempo.</param>
-        public static Proyecto CreateProyecto(global::System.Int32 id, global::System.String nombre, global::System.DateTime fechaInicio, global::System.DateTime fechaFinalizacion, global::System.String objetivo, global::System.Int32 cajaTiempo)
+        /// <param name="incremento">Valor inicial de la propiedad Incremento.</param>
+        public static Proyecto CreateProyecto(global::System.Int32 id, global::System.String nombre, global::System.DateTime fechaInicio, global::System.DateTime fechaFinalizacion, global::System.String objetivo, global::System.Int32 cajaTiempo, global::System.String incremento)
         {
             Proyecto proyecto = new Proyecto();
             proyecto.id = id;
@@ -382,6 +383,7 @@ namespace CADAgenda1
             proyecto.FechaFinalizacion = fechaFinalizacion;
             proyecto.Objetivo = objetivo;
             proyecto.CajaTiempo = cajaTiempo;
+            proyecto.Incremento = incremento;
             return proyecto;
         }
 
@@ -534,6 +536,30 @@ namespace CADAgenda1
         private global::System.Int32 _CajaTiempo;
         partial void OnCajaTiempoChanging(global::System.Int32 value);
         partial void OnCajaTiempoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Incremento
+        {
+            get
+            {
+                return _Incremento;
+            }
+            set
+            {
+                OnIncrementoChanging(value);
+                ReportPropertyChanging("Incremento");
+                _Incremento = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Incremento");
+                OnIncrementoChanged();
+            }
+        }
+        private global::System.String _Incremento;
+        partial void OnIncrementoChanging(global::System.String value);
+        partial void OnIncrementoChanged();
 
         #endregion
     

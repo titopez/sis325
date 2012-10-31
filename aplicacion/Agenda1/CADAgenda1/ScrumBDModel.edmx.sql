@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 10/31/2012 02:05:49
+-- Date Created: 10/31/2012 09:16:32
 -- Generated from EDMX file: D:\repositoriosGit\sis325\aplicacion\Agenda1\CADAgenda1\ScrumBDModel.edmx
 -- --------------------------------------------------
 
@@ -17,11 +17,26 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_RolesDeUnProyecto]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Roles] DROP CONSTRAINT [FK_RolesDeUnProyecto];
+GO
+IF OBJECT_ID(N'[dbo].[FK_HistoriasDeUnProyecto]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Historias] DROP CONSTRAINT [FK_HistoriasDeUnProyecto];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[Proyectos]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Proyectos];
+GO
+IF OBJECT_ID(N'[dbo].[Historias]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Historias];
+GO
+IF OBJECT_ID(N'[dbo].[Roles]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Roles];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -34,7 +49,8 @@ CREATE TABLE [dbo].[Proyectos] (
     [FechaInicio] datetime  NOT NULL,
     [FechaFinalizacion] datetime  NOT NULL,
     [Objetivo] nvarchar(max)  NOT NULL,
-    [CajaTiempo] int  NOT NULL
+    [CajaTiempo] int  NOT NULL,
+    [Incremento] nvarchar(max)  NOT NULL
 );
 GO
 
