@@ -36,6 +36,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Data.Entity.Design.Extensibility, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -112,6 +113,16 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CADAgenda1\CADAgenda1.csproj">
+      <Project>{A162A5FE-4DF2-43BA-ACE5-7314D3AA2A22}</Project>
+      <Name>CADAgenda1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CLNAgenda1\CLNAgenda1.csproj">
+      <Project>{4BA01F14-1A02-4CAD-BA2C-363DEDD12892}</Project>
+      <Name>CLNAgenda1</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

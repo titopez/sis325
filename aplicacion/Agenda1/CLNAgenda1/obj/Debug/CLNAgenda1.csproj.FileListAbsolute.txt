@@ -1,0 +1,5 @@
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CLNAgenda1\bin\Debug\CLNAgenda1.dll
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CLNAgenda1\bin\Debug\CLNAgenda1.pdb
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CLNAgenda1\obj\Debug\ResolveAssemblyReference.cache
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CLNAgenda1\obj\Debug\CLNAgenda1.dll
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CLNAgenda1\obj\Debug\CLNAgenda1.pdb

@@ -1,0 +1,6 @@
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CADAgenda1\bin\Debug\CADAgenda1.dll.config
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CADAgenda1\bin\Debug\CADAgenda1.dll
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CADAgenda1\bin\Debug\CADAgenda1.pdb
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CADAgenda1\obj\Debug\ResolveAssemblyReference.cache
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CADAgenda1\obj\Debug\CADAgenda1.dll
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CADAgenda1\obj\Debug\CADAgenda1.pdb

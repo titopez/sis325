@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ScrumBDModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="ScrumBDModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Proyectos" EntityType="ScrumBDModel.Proyecto" />
+    <EntitySet Name="Historias" EntityType="ScrumBDModel.Historia" />
+    <EntitySet Name="Roles" EntityType="ScrumBDModel.Rol" />
+    <AssociationSet Name="ProyectoRol" Association="ScrumBDModel.RolesDeUnProyecto">
+      <End Role="Proyecto" EntitySet="Proyectos" />
+      <End Role="Rol" EntitySet="Roles" />
+    </AssociationSet>
+    <AssociationSet Name="HistoriasDeUnProyecto" Association="ScrumBDModel.HistoriasDeUnProyecto">
+      <End Role="Proyecto" EntitySet="Proyectos" />
+      <End Role="Historia" EntitySet="Historias" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Proyecto">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="60" />
+    <Property Type="DateTime" Name="FechaInicio" Nullable="false" />
+    <Property Type="DateTime" Name="FechaFinalizacion" Nullable="false" />
+    <Property Type="String" Name="Objetivo" Nullable="false" />
+    <Property Type="Int32" Name="CajaTiempo" Nullable="false" />
+    <NavigationProperty Name="Roles" Relationship="ScrumBDModel.RolesDeUnProyecto" FromRole="Proyecto" ToRole="Rol" />
+    <NavigationProperty Name="Historias" Relationship="ScrumBDModel.HistoriasDeUnProyecto" FromRole="Proyecto" ToRole="Historia" />
+  </EntityType>
+  <EntityType Name="Historia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Descripcion" Nullable="false" />
+    <Property Type="Int32" Name="Prioridad" Nullable="false" />
+    <Property Type="Boolean" Name="Habilitado" Nullable="false" />
+    <NavigationProperty Name="Proyecto" Relationship="ScrumBDModel.HistoriasDeUnProyecto" FromRole="Historia" ToRole="Proyecto" />
+    <Property Type="Int32" Name="Proyecto_id" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="NombreCompleto" Nullable="false" />
+    <Property Type="String" Name="Responsabilidad" Nullable="false" />
+    <Property Type="String" Name="ResponsabilidadSecundaria" Nullable="false" />
+    <NavigationProperty Name="Proyecto" Relationship="ScrumBDModel.RolesDeUnProyecto" FromRole="Rol" ToRole="Proyecto" />
+    <Property Type="Int32" Name="Proyecto_id" Nullable="false" />
+  </EntityType>
+  <Association Name="RolesDeUnProyecto">
+    <End Type="ScrumBDModel.Proyecto" Role="Proyecto" Multiplicity="1" />
+    <End Type="ScrumBDModel.Rol" Role="Rol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proyecto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Rol">
+        <PropertyRef Name="Proyecto_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="HistoriasDeUnProyecto">
+    <End Type="ScrumBDModel.Proyecto" Role="Proyecto" Multiplicity="1" />
+    <End Type="ScrumBDModel.Historia" Role="Historia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proyecto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Historia">
+        <PropertyRef Name="Proyecto_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

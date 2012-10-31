@@ -173,12 +173,6 @@ namespace CAAgenda1 {
             return;
             case 6:
             this.bCrearProy = ((System.Windows.Controls.Button)(target));
-            
-            #line 10 "..\..\..\NuevoProyectoWPF.xaml"
-            this.bCrearProy.Click += new System.Windows.RoutedEventHandler(this.bCrearProy_Click);
-            
-            #line default
-            #line hidden
             return;
             case 7:
             this.bCancelar = ((System.Windows.Controls.Button)(target));

@@ -7,7 +7,7 @@
         <Label Content="Fecha de Inicio:" Height="28" HorizontalAlignment="Left" Margin="78,67,0,0" Name="lFechaIni" VerticalAlignment="Top" />
         <Label Content="Fecha de Finalización:" Height="28" HorizontalAlignment="Left" Margin="45,109,0,0" Name="lFechaFin" VerticalAlignment="Top" />
         <Label Content="Objetivo del Proyecto:" Height="28" HorizontalAlignment="Left" Margin="42,156,0,0" Name="lObjetivoProy" VerticalAlignment="Top" />
-        <Button Content="Crear" Height="23" HorizontalAlignment="Left" Margin="94,299,0,0" Name="bCrearProy" VerticalAlignment="Top" Width="75" />
+        <Button Content="Crear" Height="23" HorizontalAlignment="Left" Margin="94,299,0,0" Name="bCrearProy" VerticalAlignment="Top" Width="75" Click="bCrearProy_Click" />
         <Button Content="Cancelar" Height="23" HorizontalAlignment="Left" Margin="207,299,0,0" Name="bCancelar" VerticalAlignment="Top" Width="75" />
         <TextBox Height="23" HorizontalAlignment="Left" Margin="184,24,0,0" Name="tbNuevoProy" VerticalAlignment="Top" Width="205" />
         <DatePicker Height="25" HorizontalAlignment="Left" Margin="184,67,0,0" Name="dpFechaIni" VerticalAlignment="Top" Width="153" />

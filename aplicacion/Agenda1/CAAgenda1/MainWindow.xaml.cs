@@ -23,5 +23,29 @@ namespace CAAgenda1
         {
             InitializeComponent();
         }
+
+        private void bCrearProy_Click(object sender, RoutedEventArgs e)
+        {
+            NuevoProyectoWPF npwpf = new NuevoProyectoWPF();
+            npwpf.Show();
+        }
+
+        private void bAsignarRoles_Click(object sender, RoutedEventArgs e)
+        {
+            RegistrarNuevoRolWPF rnrwpf = new RegistrarNuevoRolWPF();
+            rnrwpf.Show();
+
+        }
+
+        private void bCrearHist_Click(object sender, RoutedEventArgs e)
+        {
+            RegistrarHistoriasWPF rhwpf = new RegistrarHistoriasWPF();
+            rhwpf.Show();
+        }
+
+        private void bSalir_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
