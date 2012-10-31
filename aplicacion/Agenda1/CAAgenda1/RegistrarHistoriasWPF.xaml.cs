@@ -57,8 +57,8 @@ namespace CAAgenda1
         }
         private void listarHistorias()
         {
-            dgHistorias.ItemsSource = hcln.listar();
-            dgHistorias.Columns[0].Visibility=0;
+            dgHistorias.ItemsSource = hcln.listar2();
+            //int colum=dgHistorias.;
 
         }
     }

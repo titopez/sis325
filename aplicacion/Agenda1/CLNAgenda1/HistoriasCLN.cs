@@ -28,6 +28,14 @@ namespace CLNAgenda1
             var historia = contexto.Historias;
             return historia.ToList();
         }
+        public IQueryable<object> listar2()
+        {
+            var resultado = from consulta in contexto.Historias
+                            select new { ID = consulta.id, DESCRIPCION = consulta.Descripcion,
+                                PRIORIDAD = consulta.Prioridad , HABILITADO = consulta.Habilitado,
+                                ID_PROYECTO = consulta.Proyecto_id};
 
+            return resultado;
+        }
     }
 }
