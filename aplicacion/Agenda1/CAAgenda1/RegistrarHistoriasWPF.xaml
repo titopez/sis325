@@ -1,0 +1,8 @@
+﻿<Window x:Class="CAAgenda1.RegistrarHistoriasWPF"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Registrar Historias" Height="300" Width="528" Name="wRegistroHist">
+    <Grid>
+        <DataGrid AutoGenerateColumns="False" Height="214" HorizontalAlignment="Left" Margin="12,35,0,0" Name="dgHistorias" VerticalAlignment="Top" Width="482" />
+    </Grid>
+</Window>
