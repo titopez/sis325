@@ -68,12 +68,4 @@ D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\FormProyect
 D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\GestionarHistoria.g.cs
 D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\Inicio.g.cs
 =======
-D:\RepositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\Form2proyectoM.baml
-D:\RepositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\FormProyecto.baml
-D:\RepositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\GestionarHistoria.baml
-D:\RepositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\Inicio.baml
-D:\RepositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\Form2proyectoM.g.cs
-D:\RepositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\FormProyecto.g.cs
-D:\RepositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\GestionarHistoria.g.cs
-D:\RepositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\Inicio.g.cs
 >>>>>>> 73f8b8c3d20270b7a17497e7d74bdcae884fdf8b
