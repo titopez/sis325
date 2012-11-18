@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 11/06/2012 11:11:35
--- Generated from EDMX file: D:\repositoriosGit\sis325\aplicacion\Agenda1\CADAgenda1\ScrumBDModel.edmx
+-- Date Created: 11/17/2012 18:56:35
+-- Generated from EDMX file: D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CADAgenda1\ScrumBDModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -17,11 +17,26 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_HistoriasDeUnProyecto]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Historias] DROP CONSTRAINT [FK_HistoriasDeUnProyecto];
+GO
+IF OBJECT_ID(N'[dbo].[FK_RolesDeUnProyecto]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Roles] DROP CONSTRAINT [FK_RolesDeUnProyecto];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[Historias]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Historias];
+GO
+IF OBJECT_ID(N'[dbo].[Proyectos]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Proyectos];
+GO
+IF OBJECT_ID(N'[dbo].[Roles]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Roles];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -35,7 +50,7 @@ CREATE TABLE [dbo].[Proyectos] (
     [FechaFinalizacion] datetime  NOT NULL,
     [Objetivo] nvarchar(max)  NOT NULL,
     [CajaTiempo] int  NOT NULL,
-    [Incremento] nvarchar(max)  NOT NULL
+    [Necesidad] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -45,7 +60,8 @@ CREATE TABLE [dbo].[Historias] (
     [Descripcion] nvarchar(max)  NOT NULL,
     [Prioridad] int  NOT NULL,
     [Habilitado] bit  NOT NULL,
-    [Proyecto_id] int  NOT NULL
+    [Proyecto_id] int  NOT NULL,
+    [Cantidad_Horas] int  NOT NULL
 );
 GO
 

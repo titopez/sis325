@@ -25,7 +25,7 @@
     <Property Type="Int32" Name="CajaTiempo" Nullable="false" />
     <NavigationProperty Name="Roles" Relationship="ScrumBDModel.RolesDeUnProyecto" FromRole="Proyecto" ToRole="Rol" />
     <NavigationProperty Name="Historias" Relationship="ScrumBDModel.HistoriasDeUnProyecto" FromRole="Proyecto" ToRole="Historia" />
-    <Property Type="String" Name="Incremento" Nullable="false" />
+    <Property Type="String" Name="Necesidad" Nullable="false" />
   </EntityType>
   <EntityType Name="Historia">
     <Key>
@@ -37,6 +37,7 @@
     <Property Type="Boolean" Name="Habilitado" Nullable="false" />
     <NavigationProperty Name="Proyecto" Relationship="ScrumBDModel.HistoriasDeUnProyecto" FromRole="Historia" ToRole="Proyecto" />
     <Property Type="Int32" Name="Proyecto_id" Nullable="false" />
+    <Property Type="Int32" Name="Cantidad_Horas" Nullable="false" />
   </EntityType>
   <EntityType Name="Rol">
     <Key>

@@ -1,0 +1,26 @@
+﻿<Window x:Class="CAAgenda1.Form2proyectoM"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Proyecto" Height="454" Width="672" WindowStartupLocation="CenterOwner">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/CAAgenda1;component/Images/Android_Wallpaper_by_clondike7.png" />
+        </Grid.Background>
+        <Label Content="Nombre del Proyecto:" Height="28" HorizontalAlignment="Left" Margin="10,10,0,0" Name="lNombreProy" VerticalAlignment="Top" />
+        <Label Content="Fecha de Inicio:" Height="28" HorizontalAlignment="Left" Margin="45,55,0,0" Name="lFechaIni" VerticalAlignment="Top" />
+        <Label Content="Fecha de Finalización:" Height="28" HorizontalAlignment="Left" Margin="309,53,0,0" Name="lFechaFin" VerticalAlignment="Top" />
+        <Label Content="Objetivo del Proyecto:" Height="28" HorizontalAlignment="Left" Margin="17,107,0,0" Name="lObjetivoProy" VerticalAlignment="Top" />
+        <Button Content="Crear Historia" Height="43" HorizontalAlignment="Left" Margin="379,337,0,0" Name="bCrearHistoria" VerticalAlignment="Top" Width="107" Click="bCrearHistoria_Click" />
+        <Button Content="Cancelar" Height="43" HorizontalAlignment="Left" Margin="530,337,0,0" Name="bCancelar" VerticalAlignment="Top" Width="108" Click="bCancelar_Click" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="151,10,0,0" Name="tbNuevoProy" VerticalAlignment="Top" Width="432" />
+        <DatePicker Height="25" HorizontalAlignment="Left" Margin="151,56,0,0" Name="dpFechaIni" VerticalAlignment="Top" Width="153" />
+        <DatePicker Height="25" HorizontalAlignment="Left" Margin="439,56,0,0" Name="dpFechaFin" VerticalAlignment="Top" Width="153" />
+        <Label Content="Caja de Tiempo: " Height="28" HorizontalAlignment="Left" Margin="46,233,0,0" Name="lIncremento" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Right" Margin="0,235,402,0" Name="tbCajatiempo" VerticalAlignment="Top" Width="96" />
+        <TextBox AcceptsReturn="True" Height="104" HorizontalAlignment="Left" Margin="152,109,0,0" Name="tbObjetivo" VerticalAlignment="Top" Width="431" />
+        <Label Content="Necesidad" Height="28" HorizontalAlignment="Left" Margin="320,233,0,0" Name="label1" VerticalAlignment="Top" />
+        <TextBox AcceptsReturn="True" Height="87" HorizontalAlignment="Right" Margin="0,233,67,0" Name="tbNecedidad" VerticalAlignment="Top" Width="192" />
+        <Button Content="Modificar" Height="43" HorizontalAlignment="Left" Margin="34,337,0,0" Name="button1" VerticalAlignment="Top" Width="102" Click="button1_Click" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="619,0,0,0" Name="tbID" VerticalAlignment="Top" Width="31" IsEnabled="False" />
+    </Grid>
+</Window>

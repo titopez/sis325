@@ -28,7 +28,7 @@
     <Property Name="FechaFinalizacion" Type="datetime" Nullable="false" />
     <Property Name="Objetivo" Type="nvarchar(max)" Nullable="false" />
     <Property Name="CajaTiempo" Type="int" Nullable="false" />
-    <Property Name="Incremento" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Necesidad" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Historias">
     <Key>
@@ -39,6 +39,7 @@
     <Property Name="Prioridad" Type="int" Nullable="false" />
     <Property Name="Habilitado" Type="bit" Nullable="false" />
     <Property Name="Proyecto_id" Type="int" Nullable="false" />
+    <Property Name="Cantidad_Horas" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Roles">
     <Key>
@@ -103,7 +104,7 @@
           <Property Type="Int32" Name="CajaTiempo" Nullable="false" />
           <NavigationProperty Name="Roles" Relationship="ScrumBDModel.RolesDeUnProyecto" FromRole="Proyecto" ToRole="Rol" />
           <NavigationProperty Name="Historias" Relationship="ScrumBDModel.HistoriasDeUnProyecto" FromRole="Proyecto" ToRole="Historia" />
-          <Property Type="String" Name="Incremento" Nullable="false" />
+          <Property Type="String" Name="Necesidad" Nullable="false" />
         </EntityType>
         <EntityType Name="Historia">
           <Key>
@@ -115,6 +116,7 @@
           <Property Type="Boolean" Name="Habilitado" Nullable="false" />
           <NavigationProperty Name="Proyecto" Relationship="ScrumBDModel.HistoriasDeUnProyecto" FromRole="Historia" ToRole="Proyecto" />
           <Property Type="Int32" Name="Proyecto_id" Nullable="false" />
+          <Property Type="Int32" Name="Cantidad_Horas" Nullable="false" />
         </EntityType>
         <EntityType Name="Rol">
           <Key>
@@ -166,7 +168,7 @@
           <ScalarProperty Name="FechaFinalizacion" ColumnName="FechaFinalizacion" />
           <ScalarProperty Name="Objetivo" ColumnName="Objetivo" />
           <ScalarProperty Name="CajaTiempo" ColumnName="CajaTiempo" />
-          <ScalarProperty Name="Incremento" ColumnName="Incremento" />
+          <ScalarProperty Name="Necesidad" ColumnName="Necesidad" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -178,6 +180,7 @@
           <ScalarProperty Name="Prioridad" ColumnName="Prioridad" />
           <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
           <ScalarProperty Name="Proyecto_id" ColumnName="Proyecto_id" />
+          <ScalarProperty Name="Cantidad_Horas" ColumnName="Cantidad_Horas" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -213,11 +216,11 @@
     <edmx:Diagrams>
       <Diagram Name="ScrumBDModel" >
         <EntityTypeShape EntityType="ScrumBDModel.Proyecto" Width="1.5" PointX="3.5" PointY="0.5" Height="2.7494921875" />
-        <EntityTypeShape EntityType="ScrumBDModel.Historia" Width="1.5" PointX="6.375" PointY="2.25" Height="1.787985026041667" />
+        <EntityTypeShape EntityType="ScrumBDModel.Historia" Width="1.5" PointX="6.375" PointY="2.25" Height="2.3648893229166665" />
         <EntityTypeShape EntityType="ScrumBDModel.Rol" Width="1.5" PointX="0.75" PointY="2.125" Height="1.787985026041667" />
         <AssociationConnector Association="ScrumBDModel.RolesDeUnProyecto">
-          <ConnectorPoint PointX="3.5" PointY="2.68724609375" />
-          <ConnectorPoint PointX="2.25" PointY="2.68724609375" />
+          <ConnectorPoint PointX="3.5" PointY="2.6872460937500002" />
+          <ConnectorPoint PointX="2.25" PointY="2.6872460937500002" />
         </AssociationConnector>
         <AssociationConnector Association="ScrumBDModel.HistoriasDeUnProyecto">
           <ConnectorPoint PointX="5" PointY="2.74974609375" />

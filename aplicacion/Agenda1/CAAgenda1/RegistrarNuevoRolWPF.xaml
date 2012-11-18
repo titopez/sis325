@@ -8,7 +8,7 @@
         <Label Content="Rol Secundario:" Height="28" HorizontalAlignment="Left" Margin="49,116,0,0" Name="lRolSec" VerticalAlignment="Top" />
         <Label Content="Nombre del Proyecto:" Height="28" HorizontalAlignment="Left" Margin="17,161,0,0" Name="lProyecto" VerticalAlignment="Top" />
         <Button Content="Registrar" Height="23" HorizontalAlignment="Left" Margin="99,221,0,0" Name="bRegistrarRol" VerticalAlignment="Top" Width="75" Click="bRegistrarRol_Click" />
-        <Button Content="Cancelar" Height="23" HorizontalAlignment="Left" Margin="201,221,0,0" Name="bCancelar" VerticalAlignment="Top" Width="75" />
+        <Button Content="Cancelar" Height="23" HorizontalAlignment="Right" Margin="0,221,108,0" Name="bCancelar" VerticalAlignment="Top" Width="75" Click="bCancelar_Click" />
         <TextBox Height="23" HorizontalAlignment="Left" Margin="147,32,0,0" Name="tbNombre" VerticalAlignment="Top" Width="220" />
         <TextBox Height="23" HorizontalAlignment="Left" Margin="147,75,0,0" Name="tbRol" VerticalAlignment="Top" Width="170" />
         <TextBox Height="23" HorizontalAlignment="Left" Margin="147,118,0,0" Name="tbRolSec" VerticalAlignment="Top" Width="170" />

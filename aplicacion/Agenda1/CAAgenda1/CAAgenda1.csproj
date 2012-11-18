@@ -57,12 +57,40 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Form2proyectoM.xaml.cs">
+      <DependentUpon>Form2proyectoM.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FormProyecto.xaml.cs">
+      <DependentUpon>FormProyecto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GestionarHistoria.xaml.cs">
+      <DependentUpon>GestionarHistoria.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Inicio.xaml.cs">
+      <DependentUpon>Inicio.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RegistrarHistoriasWPF.xaml.cs">
       <DependentUpon>RegistrarHistoriasWPF.xaml</DependentUpon>
     </Compile>
     <Compile Include="RegistrarNuevoRolWPF.xaml.cs">
       <DependentUpon>RegistrarNuevoRolWPF.xaml</DependentUpon>
     </Compile>
+    <Page Include="Form2proyectoM.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FormProyecto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GestionarHistoria.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Inicio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -109,9 +137,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="App.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -128,6 +154,10 @@
       <Name>CLNAgenda1</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Android_Wallpaper_by_clondike7.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

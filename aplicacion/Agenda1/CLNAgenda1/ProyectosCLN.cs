@@ -18,10 +18,19 @@ namespace CLNAgenda1
             contexto.Proyectos.AddObject(p);
             contexto.SaveChanges();
         }
-        public void modificarProyecto(Proyecto p)
+        public Boolean modificarProyecto(Proyecto p)
         {
-            contexto.Proyectos.ApplyCurrentValues(p);
-            contexto.SaveChanges();
+            try
+            {
+                contexto.Proyectos.Attach(p);
+                contexto.ObjectStateManager.ChangeObjectState(p, System.Data.EntityState.Modified);
+                contexto.SaveChanges();
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            return true;
         }
 
         public List<Proyecto> listar()
@@ -45,6 +54,13 @@ namespace CLNAgenda1
             Proyecto p = new Proyecto();
             p = contexto.Proyectos.FirstOrDefault(consulta => consulta.Nombre == nombre);
             return p;
+        }
+        public IQueryable<object> seleccionar(String nombre)
+        {
+            var resultado = (from p in contexto.Proyectos
+                             where p.Nombre.StartsWith(nombre)
+                             select p.Nombre);
+            return resultado;
         }
     }
 }

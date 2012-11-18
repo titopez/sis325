@@ -10,7 +10,7 @@
           <ScalarProperty Name="FechaFinalizacion" ColumnName="FechaFinalizacion" />
           <ScalarProperty Name="Objetivo" ColumnName="Objetivo" />
           <ScalarProperty Name="CajaTiempo" ColumnName="CajaTiempo" />
-          <ScalarProperty Name="Incremento" ColumnName="Incremento" />
+          <ScalarProperty Name="Necesidad" ColumnName="Necesidad" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -22,6 +22,7 @@
           <ScalarProperty Name="Prioridad" ColumnName="Prioridad" />
           <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
           <ScalarProperty Name="Proyecto_id" ColumnName="Proyecto_id" />
+          <ScalarProperty Name="Cantidad_Horas" ColumnName="Cantidad_Horas" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
