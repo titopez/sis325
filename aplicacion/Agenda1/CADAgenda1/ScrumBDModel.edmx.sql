@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 11/17/2012 18:56:35
--- Generated from EDMX file: D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CADAgenda1\ScrumBDModel.edmx
+-- Date Created: 11/18/2012 12:32:20
+-- Generated from EDMX file: D:\RepositoriosGit\sis325\aplicacion\Agenda1\CADAgenda1\ScrumBDModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -61,7 +61,8 @@ CREATE TABLE [dbo].[Historias] (
     [Prioridad] int  NOT NULL,
     [Habilitado] bit  NOT NULL,
     [Proyecto_id] int  NOT NULL,
-    [Cantidad_Horas] int  NOT NULL
+    [Cantidad_Horas] int  NOT NULL,
+    [Sprint_id_Sprint] int  NOT NULL
 );
 GO
 
@@ -72,6 +73,29 @@ CREATE TABLE [dbo].[Roles] (
     [Responsabilidad] nvarchar(max)  NOT NULL,
     [ResponsabilidadSecundaria] nvarchar(max)  NOT NULL,
     [Proyecto_id] int  NOT NULL
+);
+GO
+
+-- Creating table 'Tareas'
+CREATE TABLE [dbo].[Tareas] (
+    [id_tarea] int IDENTITY(1,1) NOT NULL,
+    [Nombre_Tarea] nvarchar(max)  NOT NULL,
+    [Tipo] nvarchar(max)  NOT NULL,
+    [Estado] nvarchar(max)  NOT NULL,
+    [Horas] int  NOT NULL,
+    [Sprint_id_Sprint] int  NOT NULL,
+    [Rol_id] int  NOT NULL
+);
+GO
+
+-- Creating table 'Sprints'
+CREATE TABLE [dbo].[Sprints] (
+    [id_Sprint] int IDENTITY(1,1) NOT NULL,
+    [Inicio] datetime  NOT NULL,
+    [Duracion] int  NOT NULL,
+    [Estado] nvarchar(max)  NOT NULL,
+    [Tareas_Pendientes] int  NOT NULL,
+    [Horas_Pendientes] int  NOT NULL
 );
 GO
 
@@ -95,6 +119,18 @@ GO
 ALTER TABLE [dbo].[Roles]
 ADD CONSTRAINT [PK_Roles]
     PRIMARY KEY CLUSTERED ([id] ASC);
+GO
+
+-- Creating primary key on [id_tarea] in table 'Tareas'
+ALTER TABLE [dbo].[Tareas]
+ADD CONSTRAINT [PK_Tareas]
+    PRIMARY KEY CLUSTERED ([id_tarea] ASC);
+GO
+
+-- Creating primary key on [id_Sprint] in table 'Sprints'
+ALTER TABLE [dbo].[Sprints]
+ADD CONSTRAINT [PK_Sprints]
+    PRIMARY KEY CLUSTERED ([id_Sprint] ASC);
 GO
 
 -- --------------------------------------------------
@@ -127,6 +163,48 @@ ADD CONSTRAINT [FK_HistoriasDeUnProyecto]
 CREATE INDEX [IX_FK_HistoriasDeUnProyecto]
 ON [dbo].[Historias]
     ([Proyecto_id]);
+GO
+
+-- Creating foreign key on [Rol_id] in table 'Tareas'
+ALTER TABLE [dbo].[Tareas]
+ADD CONSTRAINT [FK_RolesdeTarea]
+    FOREIGN KEY ([Rol_id])
+    REFERENCES [dbo].[Roles]
+        ([id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_RolesdeTarea'
+CREATE INDEX [IX_FK_RolesdeTarea]
+ON [dbo].[Tareas]
+    ([Rol_id]);
+GO
+
+-- Creating foreign key on [Sprint_id_Sprint] in table 'Tareas'
+ALTER TABLE [dbo].[Tareas]
+ADD CONSTRAINT [FK_TareasdelSprint]
+    FOREIGN KEY ([Sprint_id_Sprint])
+    REFERENCES [dbo].[Sprints]
+        ([id_Sprint])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_TareasdelSprint'
+CREATE INDEX [IX_FK_TareasdelSprint]
+ON [dbo].[Tareas]
+    ([Sprint_id_Sprint]);
+GO
+
+-- Creating foreign key on [Sprint_id_Sprint] in table 'Historias'
+ALTER TABLE [dbo].[Historias]
+ADD CONSTRAINT [FK_HistoriasdelSprint]
+    FOREIGN KEY ([Sprint_id_Sprint])
+    REFERENCES [dbo].[Sprints]
+        ([id_Sprint])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_HistoriasdelSprint'
+CREATE INDEX [IX_FK_HistoriasdelSprint]
+ON [dbo].[Historias]
+    ([Sprint_id_Sprint]);
 GO
 
 -- --------------------------------------------------

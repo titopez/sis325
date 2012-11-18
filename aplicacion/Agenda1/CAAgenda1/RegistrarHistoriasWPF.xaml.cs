@@ -123,6 +123,7 @@ namespace CAAgenda1
             hcln.modificarHistoria(h);
             MessageBox.Show("se actualizo la historia");
             hcln.ordenar();
+            
         }
         private void dgHistorias_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

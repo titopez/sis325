@@ -12,6 +12,20 @@
       <End Role="Proyecto" EntitySet="Proyectos" />
       <End Role="Historia" EntitySet="Historias" />
     </AssociationSet>
+    <EntitySet Name="Tareas" EntityType="ScrumBDModel.Tarea" />
+    <AssociationSet Name="RolTarea" Association="ScrumBDModel.RolesdeTarea">
+      <End Role="Rol" EntitySet="Roles" />
+      <End Role="Tarea" EntitySet="Tareas" />
+    </AssociationSet>
+    <EntitySet Name="Sprints" EntityType="ScrumBDModel.Sprint" />
+    <AssociationSet Name="TareasdelSprint" Association="ScrumBDModel.TareasdelSprint">
+      <End Role="Tarea" EntitySet="Tareas" />
+      <End Role="Sprint" EntitySet="Sprints" />
+    </AssociationSet>
+    <AssociationSet Name="HistoriasdelSprint" Association="ScrumBDModel.HistoriasdelSprint">
+      <End Role="Historia" EntitySet="Historias" />
+      <End Role="Sprint" EntitySet="Sprints" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Proyecto">
     <Key>
@@ -38,6 +52,8 @@
     <NavigationProperty Name="Proyecto" Relationship="ScrumBDModel.HistoriasDeUnProyecto" FromRole="Historia" ToRole="Proyecto" />
     <Property Type="Int32" Name="Proyecto_id" Nullable="false" />
     <Property Type="Int32" Name="Cantidad_Horas" Nullable="false" />
+    <NavigationProperty Name="Sprint" Relationship="ScrumBDModel.HistoriasdelSprint" FromRole="Historia" ToRole="Sprint" />
+    <Property Name="Sprint_id_Sprint" Nullable="false" Type="Int32" />
   </EntityType>
   <EntityType Name="Rol">
     <Key>
@@ -49,6 +65,7 @@
     <Property Type="String" Name="ResponsabilidadSecundaria" Nullable="false" />
     <NavigationProperty Name="Proyecto" Relationship="ScrumBDModel.RolesDeUnProyecto" FromRole="Rol" ToRole="Proyecto" />
     <Property Type="Int32" Name="Proyecto_id" Nullable="false" />
+    <NavigationProperty Name="Tarea" Relationship="ScrumBDModel.RolesdeTarea" FromRole="Rol" ToRole="Tarea" />
   </EntityType>
   <Association Name="RolesDeUnProyecto">
     <End Type="ScrumBDModel.Proyecto" Role="Proyecto" Multiplicity="1" />
@@ -71,6 +88,60 @@
       </Principal>
       <Dependent Role="Historia">
         <PropertyRef Name="Proyecto_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Tarea">
+    <Key>
+      <PropertyRef Name="id_tarea" />
+    </Key>
+    <Property Type="Int32" Name="id_tarea" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Nombre_Tarea" Nullable="false" />
+    <Property Type="String" Name="Tipo" Nullable="false" />
+    <Property Type="String" Name="Estado" Nullable="false" />
+    <Property Type="Int32" Name="Horas" Nullable="false" />
+    <NavigationProperty Name="Rol" Relationship="ScrumBDModel.RolesdeTarea" FromRole="Tarea" ToRole="Rol" />
+    <NavigationProperty Name="Sprint" Relationship="ScrumBDModel.TareasdelSprint" FromRole="Tarea" ToRole="Sprint" />
+    <Property Name="Sprint_id_Sprint" Nullable="false" Type="Int32" />
+  </EntityType>
+  <Association Name="RolesdeTarea">
+    <End Type="ScrumBDModel.Rol" Role="Rol" Multiplicity="1" />
+    <End Type="ScrumBDModel.Tarea" Role="Tarea" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Sprint">
+    <Key>
+      <PropertyRef Name="id_Sprint" />
+    </Key>
+    <Property Type="Int32" Name="id_Sprint" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="DateTime" Name="Inicio" Nullable="false" />
+    <Property Type="Int32" Name="Duracion" Nullable="false" />
+    <Property Type="String" Name="Estado" Nullable="false" />
+    <Property Type="Int32" Name="Tareas_Pendientes" Nullable="false" />
+    <Property Type="Int32" Name="Horas_Pendientes" Nullable="false" />
+    <NavigationProperty Name="Tareas" Relationship="ScrumBDModel.TareasdelSprint" FromRole="Sprint" ToRole="Tarea" />
+    <NavigationProperty Name="Historias" Relationship="ScrumBDModel.HistoriasdelSprint" FromRole="Sprint" ToRole="Historia" />
+  </EntityType>
+  <Association Name="TareasdelSprint">
+    <End Type="ScrumBDModel.Tarea" Role="Tarea" Multiplicity="*" />
+    <End Type="ScrumBDModel.Sprint" Role="Sprint" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Sprint">
+        <PropertyRef Name="id_Sprint" />
+      </Principal>
+      <Dependent Role="Tarea">
+        <PropertyRef Name="Sprint_id_Sprint" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="HistoriasdelSprint">
+    <End Type="ScrumBDModel.Historia" Role="Historia" Multiplicity="*" />
+    <End Type="ScrumBDModel.Sprint" Role="Sprint" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Sprint">
+        <PropertyRef Name="id_Sprint" />
+      </Principal>
+      <Dependent Role="Historia">
+        <PropertyRef Name="Sprint_id_Sprint" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
