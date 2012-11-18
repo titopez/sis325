@@ -33,6 +33,7 @@ namespace CAAgenda1
             InitializeComponent();
             mostrar();
             listarHistorias();
+            dgHistorias.CanUserSortColumns = true;
         }
         private void mostrar()
         {
@@ -54,12 +55,17 @@ namespace CAAgenda1
             h.Proyecto_id = p.id;
             hcln.crearHistoria(h);
             listarHistorias();
+            //ordenarHistorias();
         }
         private void listarHistorias()
         {
             dgHistorias.ItemsSource = hcln.listar2();
-            //int colum=dgHistorias.;
-
         }
+        //private void ordenarHistorias()
+        //{
+        //    dgHistorias.CanUserSortColumns = true;
+        //    dgHistorias.Columns[2].SortDirection = desc
+        //}
+            
     }
 }

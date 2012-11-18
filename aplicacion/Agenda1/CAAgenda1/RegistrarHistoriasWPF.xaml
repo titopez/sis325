@@ -16,7 +16,7 @@
             <ComboBoxItem Content="4" />
             <ComboBoxItem Content="5" />
         </ComboBox>
-        <DataGrid AutoGenerateColumns="True" Height="178" HorizontalAlignment="Left" Margin="17,296,0,0" Name="dgHistorias" VerticalAlignment="Top" Width="477" MinRowHeight="20" />
+        <DataGrid AutoGenerateColumns="True" Height="178" HorizontalAlignment="Left" Margin="17,296,0,0" Name="dgHistorias" VerticalAlignment="Top" Width="477" MinRowHeight="20"/>
         <Label Content="Proyecto:" Height="28" HorizontalAlignment="Left" Margin="144,188,0,0" Name="lProyecto" VerticalAlignment="Top" />
         <ComboBox Height="23" HorizontalAlignment="Left" Margin="230,188,0,0" Name="cbProyecto" VerticalAlignment="Top" Width="120" />
     </Grid>

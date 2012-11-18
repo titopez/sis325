@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 10/31/2012 09:16:32
+-- Date Created: 11/06/2012 11:11:35
 -- Generated from EDMX file: D:\repositoriosGit\sis325\aplicacion\Agenda1\CADAgenda1\ScrumBDModel.edmx
 -- --------------------------------------------------
 
@@ -17,26 +17,11 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK_RolesDeUnProyecto]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Roles] DROP CONSTRAINT [FK_RolesDeUnProyecto];
-GO
-IF OBJECT_ID(N'[dbo].[FK_HistoriasDeUnProyecto]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Historias] DROP CONSTRAINT [FK_HistoriasDeUnProyecto];
-GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[Proyectos]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Proyectos];
-GO
-IF OBJECT_ID(N'[dbo].[Historias]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Historias];
-GO
-IF OBJECT_ID(N'[dbo].[Roles]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Roles];
-GO
 
 -- --------------------------------------------------
 -- Creating all tables
