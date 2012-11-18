@@ -58,3 +58,11 @@ D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\obj\x86
 D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\obj\x86\Debug\GenerateResource.write.1.tlog
 D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\obj\x86\Debug\CAAgenda1.exe
 D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\obj\x86\Debug\CAAgenda1.pdb
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\Form2proyectoM.baml
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\FormProyecto.baml
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\GestionarHistoria.baml
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\Inicio.baml
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\Form2proyectoM.g.cs
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\FormProyecto.g.cs
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\GestionarHistoria.g.cs
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\Inicio.g.cs
