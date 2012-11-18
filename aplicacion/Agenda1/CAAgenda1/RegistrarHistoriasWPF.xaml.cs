@@ -120,7 +120,7 @@ namespace CAAgenda1
             p = pcln.getProyecto(tbnombrep.Text);
             h.Proyecto_id = p.id;
             h.id = int.Parse(tbIDH.Text);
-            hcln.modificar(h);
+            hcln.modificarHistoria(h);
             MessageBox.Show("se actualizo la historia");
             hcln.ordenar();
         }
