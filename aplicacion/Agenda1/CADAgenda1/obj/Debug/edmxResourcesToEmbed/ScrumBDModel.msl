@@ -23,6 +23,7 @@
           <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
           <ScalarProperty Name="Proyecto_id" ColumnName="Proyecto_id" />
           <ScalarProperty Name="Cantidad_Horas" ColumnName="Cantidad_Horas" />
+          <ScalarProperty Name="Sprint_id_Sprint" ColumnName="Sprint_id_Sprint" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -37,5 +38,37 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Tareas">
+      <EntityTypeMapping TypeName="IsTypeOf(ScrumBDModel.Tarea)">
+        <MappingFragment StoreEntitySet="Tareas">
+          <ScalarProperty Name="id_tarea" ColumnName="id_tarea" />
+          <ScalarProperty Name="Nombre_Tarea" ColumnName="Nombre_Tarea" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Horas" ColumnName="Horas" />
+          <ScalarProperty Name="Sprint_id_Sprint" ColumnName="Sprint_id_Sprint" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sprints">
+      <EntityTypeMapping TypeName="IsTypeOf(ScrumBDModel.Sprint)">
+        <MappingFragment StoreEntitySet="Sprints">
+          <ScalarProperty Name="id_Sprint" ColumnName="id_Sprint" />
+          <ScalarProperty Name="Inicio" ColumnName="Inicio" />
+          <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Tareas_Pendientes" ColumnName="Tareas_Pendientes" />
+          <ScalarProperty Name="Horas_Pendientes" ColumnName="Horas_Pendientes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="RolTarea" TypeName="ScrumBDModel.RolesdeTarea" StoreEntitySet="Tareas">
+      <EndProperty Name="Rol">
+        <ScalarProperty Name="id" ColumnName="Rol_id" />
+      </EndProperty>
+      <EndProperty Name="Tarea">
+        <ScalarProperty Name="id_tarea" ColumnName="id_tarea" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

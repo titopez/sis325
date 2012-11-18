@@ -33,8 +33,7 @@ namespace CLNAgenda1
         {
             try
             {
-                contexto.Historias.Attach(historia);
-                contexto.ObjectStateManager.ChangeObjectState(historia, System.Data.EntityState.Modified);
+                contexto.Historias.ApplyCurrentValues(historia);
                 contexto.SaveChanges();
             }
             catch (Exception)
