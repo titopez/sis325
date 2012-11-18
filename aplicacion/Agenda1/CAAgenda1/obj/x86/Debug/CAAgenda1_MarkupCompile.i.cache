@@ -4,16 +4,28 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD
 D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\
+=======
+D:\RepositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\
+>>>>>>> 73f8b8c3d20270b7a17497e7d74bdcae884fdf8b
 CAAgenda1
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\App.xaml
 8-1656334597
 
 131408012370
 16-1535531094
+=======
+D:\RepositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\App.xaml
+8-1656334597
+
+13556362700
+16-672951528
+>>>>>>> 73f8b8c3d20270b7a17497e7d74bdcae884fdf8b
 Form2proyectoM.xaml;FormProyecto.xaml;GestionarHistoria.xaml;Inicio.xaml;MainWindow.xaml;NuevoProyectoWPF.xaml;RegistrarHistoriasWPF.xaml;RegistrarNuevoRolWPF.xaml;
 
 False

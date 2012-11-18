@@ -28,7 +28,8 @@ namespace CLNAgenda1
             contexto.Historias.DeleteObject(h);
             contexto.SaveChanges();
         }
-        public Boolean modificar(Historia historia)
+
+        public Boolean modificarHistoria(Historia historia)
         {
             try
             {
