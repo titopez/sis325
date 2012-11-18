@@ -1,0 +1,22 @@
+﻿<Window x:Class="CAAgenda1.GestionarHistoria"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="GestionarHistoria" Height="281" Width="636">
+    <Grid>
+        <Label Content="Descripcion:" Height="28" HorizontalAlignment="Left" Margin="105,46,0,0" Name="lDescripcion" VerticalAlignment="Top" />
+        <Label Content="Prioridad:" Height="28" HorizontalAlignment="Left" Margin="129,140,0,0" Name="lPrioridad" VerticalAlignment="Top" />
+        <CheckBox Content="Habilitar" Height="16" HorizontalAlignment="Left" Margin="471,145,0,0" Name="chbHabilitar" VerticalAlignment="Top" />
+        <TextBox AcceptsReturn="True" Height="77" HorizontalAlignment="Right" Margin="0,48,19,0" Name="tbDescripcion" VerticalAlignment="Top" Width="398" />
+        <Button Content="Guardar Cambios" Height="42" HorizontalAlignment="Left" Margin="44,182,0,0" Name="bRegistrar" VerticalAlignment="Top" Width="117" />
+        <Button Content="Cancelar" Height="42" HorizontalAlignment="Left" Margin="480,182,0,0" Name="bCancelar" VerticalAlignment="Top" Width="103" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="198,145,0,0" Name="cbPrioridad" VerticalAlignment="Top" Width="82">
+            <ComboBoxItem Content="1" />
+            <ComboBoxItem Content="2" />
+            <ComboBoxItem Content="3" />
+            <ComboBoxItem Content="4" />
+            <ComboBoxItem Content="5" />
+        </ComboBox>
+        <TextBox Height="23" HorizontalAlignment="Left" IsEnabled="False" Name="tbnombrep" VerticalAlignment="Top" Width="614" />
+        <Button Content="Eliminar Historia" Height="42" HorizontalAlignment="Left" Margin="175,182,0,0" Name="button1" VerticalAlignment="Top" Width="116" />
+    </Grid>
+</Window>

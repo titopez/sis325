@@ -24,29 +24,47 @@ namespace CAAgenda1
         private DateTime fechaIni;
         private DateTime fechaFin;
         private String objetivo;
-        private String incremento;
+        private int caja_tiempo;
+        private String Necesidad;
         ProyectosCLN pcln = new ProyectosCLN();
         
         public NuevoProyectoWPF()
         {
             InitializeComponent();
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         private void bCrearProy_Click(object sender, RoutedEventArgs e)
         {
             nombre = tbNuevoProy.Text;
             fechaIni = DateTime.Parse(dpFechaIni.SelectedDate.ToString());
-            fechaFin = DateTime.Parse(dpFechaIni.SelectedDate.ToString());
+            fechaFin = DateTime.Parse(dpFechaFin.SelectedDate.ToString());
             objetivo = tbObjetivo.Text;
-            incremento = tbIncremento.Text;
+            caja_tiempo = int.Parse(tbCajatiempo.Text);
+            Necesidad = tbNecedidad.Text;
             Proyecto p = new Proyecto();
             p.Nombre = nombre;
             p.FechaInicio = fechaIni;
             p.FechaFinalizacion = fechaFin;
             p.Objetivo = objetivo;
-            p.Incremento = incremento;
-            pcln.crearProyecto(p);          
+            p.CajaTiempo = caja_tiempo;
+            p.Necesidad = Necesidad;
+            pcln.crearProyecto(p);
+            MessageBox.Show("El Proyecto " + nombre + " fue Registrado con Exito!!!");
+            limpiar();
+        }
 
+        private void bCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            (new FormProyecto()).Show();
+            this.Hide();
+        }
+        private void limpiar()
+        {
+            tbNuevoProy.Clear();
+            tbObjetivo.Clear();
+            tbCajatiempo.Clear();
+            tbNecedidad.Clear();
         }
     }
 }

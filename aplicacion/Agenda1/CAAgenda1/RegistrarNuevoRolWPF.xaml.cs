@@ -28,6 +28,7 @@ namespace CAAgenda1
         public RegistrarNuevoRolWPF()
         {
             InitializeComponent();
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             mostrar();
         }
 
@@ -48,6 +49,13 @@ namespace CAAgenda1
         {
             cbNombreProy.DisplayMemberPath = "Nombre";
             cbNombreProy.ItemsSource = pcln.listarNombres();
+        }
+
+        private void bCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow principal = new MainWindow();
+            principal.Show();
+            this.Hide();
         }
     }
 }

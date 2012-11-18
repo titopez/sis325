@@ -172,7 +172,8 @@ namespace CADAgenda1
         /// <param name="prioridad">Valor inicial de la propiedad Prioridad.</param>
         /// <param name="habilitado">Valor inicial de la propiedad Habilitado.</param>
         /// <param name="proyecto_id">Valor inicial de la propiedad Proyecto_id.</param>
-        public static Historia CreateHistoria(global::System.Int32 id, global::System.String descripcion, global::System.Int32 prioridad, global::System.Boolean habilitado, global::System.Int32 proyecto_id)
+        /// <param name="cantidad_Horas">Valor inicial de la propiedad Cantidad_Horas.</param>
+        public static Historia CreateHistoria(global::System.Int32 id, global::System.String descripcion, global::System.Int32 prioridad, global::System.Boolean habilitado, global::System.Int32 proyecto_id, global::System.Int32 cantidad_Horas)
         {
             Historia historia = new Historia();
             historia.id = id;
@@ -180,6 +181,7 @@ namespace CADAgenda1
             historia.Prioridad = prioridad;
             historia.Habilitado = habilitado;
             historia.Proyecto_id = proyecto_id;
+            historia.Cantidad_Horas = cantidad_Horas;
             return historia;
         }
 
@@ -308,6 +310,30 @@ namespace CADAgenda1
         private global::System.Int32 _Proyecto_id;
         partial void OnProyecto_idChanging(global::System.Int32 value);
         partial void OnProyecto_idChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Cantidad_Horas
+        {
+            get
+            {
+                return _Cantidad_Horas;
+            }
+            set
+            {
+                OnCantidad_HorasChanging(value);
+                ReportPropertyChanging("Cantidad_Horas");
+                _Cantidad_Horas = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Cantidad_Horas");
+                OnCantidad_HorasChanged();
+            }
+        }
+        private global::System.Int32 _Cantidad_Horas;
+        partial void OnCantidad_HorasChanging(global::System.Int32 value);
+        partial void OnCantidad_HorasChanged();
 
         #endregion
     
@@ -373,8 +399,8 @@ namespace CADAgenda1
         /// <param name="fechaFinalizacion">Valor inicial de la propiedad FechaFinalizacion.</param>
         /// <param name="objetivo">Valor inicial de la propiedad Objetivo.</param>
         /// <param name="cajaTiempo">Valor inicial de la propiedad CajaTiempo.</param>
-        /// <param name="incremento">Valor inicial de la propiedad Incremento.</param>
-        public static Proyecto CreateProyecto(global::System.Int32 id, global::System.String nombre, global::System.DateTime fechaInicio, global::System.DateTime fechaFinalizacion, global::System.String objetivo, global::System.Int32 cajaTiempo, global::System.String incremento)
+        /// <param name="necesidad">Valor inicial de la propiedad Necesidad.</param>
+        public static Proyecto CreateProyecto(global::System.Int32 id, global::System.String nombre, global::System.DateTime fechaInicio, global::System.DateTime fechaFinalizacion, global::System.String objetivo, global::System.Int32 cajaTiempo, global::System.String necesidad)
         {
             Proyecto proyecto = new Proyecto();
             proyecto.id = id;
@@ -383,7 +409,7 @@ namespace CADAgenda1
             proyecto.FechaFinalizacion = fechaFinalizacion;
             proyecto.Objetivo = objetivo;
             proyecto.CajaTiempo = cajaTiempo;
-            proyecto.Incremento = incremento;
+            proyecto.Necesidad = necesidad;
             return proyecto;
         }
 
@@ -542,24 +568,24 @@ namespace CADAgenda1
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Incremento
+        public global::System.String Necesidad
         {
             get
             {
-                return _Incremento;
+                return _Necesidad;
             }
             set
             {
-                OnIncrementoChanging(value);
-                ReportPropertyChanging("Incremento");
-                _Incremento = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Incremento");
-                OnIncrementoChanged();
+                OnNecesidadChanging(value);
+                ReportPropertyChanging("Necesidad");
+                _Necesidad = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Necesidad");
+                OnNecesidadChanged();
             }
         }
-        private global::System.String _Incremento;
-        partial void OnIncrementoChanging(global::System.String value);
-        partial void OnIncrementoChanged();
+        private global::System.String _Necesidad;
+        partial void OnNecesidadChanging(global::System.String value);
+        partial void OnNecesidadChanged();
 
         #endregion
     

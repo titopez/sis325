@@ -1,18 +1,9 @@
-D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\bin\Debug\CAAgenda1.exe.config
 D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\bin\Debug\CAAgenda1.exe
 D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\bin\Debug\CAAgenda1.pdb
-D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\bin\Debug\CADAgenda1.dll
-D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\bin\Debug\CLNAgenda1.dll
-D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\bin\Debug\Microsoft.Data.Entity.Design.Extensibility.dll
-D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\bin\Debug\CADAgenda1.pdb
-D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\bin\Debug\CLNAgenda1.pdb
-D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\bin\Debug\es\Microsoft.Data.Entity.Design.Extensibility.resources.dll
 D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\ResolveAssemblyReference.cache
-D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\MainWindow.baml
 D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\NuevoProyectoWPF.baml
 D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\RegistrarHistoriasWPF.baml
 D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\RegistrarNuevoRolWPF.baml
-D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\MainWindow.g.cs
 D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\NuevoProyectoWPF.g.cs
 D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\RegistrarHistoriasWPF.g.cs
 D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\RegistrarNuevoRolWPF.g.cs
@@ -24,3 +15,46 @@ D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\GenerateRes
 D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\GenerateResource.write.1.tlog
 D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\CAAgenda1.exe
 D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\CAAgenda1.pdb
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\MainWindow.baml
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\MainWindow.g.cs
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\bin\Debug\CADAgenda1.dll
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\bin\Debug\CLNAgenda1.dll
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\bin\Debug\Microsoft.Data.Entity.Design.Extensibility.dll
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\bin\Debug\CADAgenda1.pdb
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\bin\Debug\CLNAgenda1.pdb
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\bin\Debug\es\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\bin\Debug\CAAgenda1.exe.config
+D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\bin\Debug\CAAgenda1.exe.config
+D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\bin\Debug\CAAgenda1.exe
+D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\bin\Debug\CAAgenda1.pdb
+D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\bin\Debug\CADAgenda1.dll
+D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\bin\Debug\CLNAgenda1.dll
+D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\bin\Debug\Microsoft.Data.Entity.Design.Extensibility.dll
+D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\bin\Debug\CADAgenda1.pdb
+D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\bin\Debug\CLNAgenda1.pdb
+D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\bin\Debug\es\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\obj\x86\Debug\Form2proyectoM.baml
+D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\obj\x86\Debug\FormProyecto.baml
+D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\obj\x86\Debug\GestionarHistoria.baml
+D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\obj\x86\Debug\Inicio.baml
+D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\obj\x86\Debug\MainWindow.baml
+D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\obj\x86\Debug\NuevoProyectoWPF.baml
+D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\obj\x86\Debug\RegistrarHistoriasWPF.baml
+D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\obj\x86\Debug\RegistrarNuevoRolWPF.baml
+D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\obj\x86\Debug\Form2proyectoM.g.cs
+D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\obj\x86\Debug\FormProyecto.g.cs
+D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\obj\x86\Debug\GestionarHistoria.g.cs
+D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\obj\x86\Debug\Inicio.g.cs
+D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\obj\x86\Debug\MainWindow.g.cs
+D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\obj\x86\Debug\NuevoProyectoWPF.g.cs
+D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\obj\x86\Debug\RegistrarHistoriasWPF.g.cs
+D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\obj\x86\Debug\RegistrarNuevoRolWPF.g.cs
+D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\obj\x86\Debug\App.g.cs
+D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\obj\x86\Debug\CAAgenda1_MarkupCompile.cache
+D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\obj\x86\Debug\CAAgenda1.g.resources
+D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\obj\x86\Debug\CAAgenda1.Properties.Resources.resources
+D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\obj\x86\Debug\CAAgenda1.exe
+D:\Universidad\SIS 325\Practicas\Proyecto SCRUM\Sergio\Agenda1\CAAgenda1\obj\x86\Debug\CAAgenda1.pdb
