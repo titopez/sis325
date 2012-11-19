@@ -74,21 +74,26 @@ namespace CAAgenda1
         
         private void bRegistrar_Click(object sender, RoutedEventArgs e)
         {
-            desc = tbDescripcion.Text;
-            habilitar = chbHabilitar.IsChecked.Value;
-            prioridad = int.Parse(cbPrioridad.Text);
-            //nombrep = tbnombrep.Text;
-            Horas = int.Parse(tbHoras.Text);
-            p = pcln.getProyectoId(idProy);
-            h.Descripcion = desc;
-            h.Prioridad = prioridad;
-            h.Habilitado = habilitar;
-            h.Proyecto_id = p.id;
-            h.Cantidad_Horas = Horas;
-            hcln.crearHistoria(h);
-            MessageBox.Show("La historia fue registrada exitosamente");
-            listarHistorias();
-            hcln.ordenar();
+            if ((tbDescripcion.Text.Equals("")) || (tbHoras.Text.Equals("")))
+                MessageBox.Show("Todos los campos son obligatorios");
+            else
+            {
+                desc = tbDescripcion.Text;
+                habilitar = chbHabilitar.IsChecked.Value;
+                prioridad = int.Parse(cbPrioridad.Text);
+                //nombrep = tbnombrep.Text;
+                Horas = int.Parse(tbHoras.Text);
+                p = pcln.getProyectoId(idProy);
+                h.Descripcion = desc;
+                h.Prioridad = prioridad;
+                h.Habilitado = habilitar;
+                h.Proyecto_id = p.id;
+                h.Cantidad_Horas = Horas;
+                hcln.crearHistoria(h);
+                MessageBox.Show("La historia fue registrada exitosamente");
+                listarHistorias();
+                hcln.ordenar();
+            }
             limpiar();
         }
         private void listarHistorias()

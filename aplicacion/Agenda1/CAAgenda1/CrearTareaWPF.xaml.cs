@@ -35,25 +35,30 @@ namespace CAAgenda1
 
         private void bCrear_Click(object sender, RoutedEventArgs e)
         {
-            Tarea t = new Tarea();
-            t.id_tarea = int.Parse(tbIdTarea.Text);
-            t.Nombre_Tarea = tbNombre.Text;
-            t.Estado = cbEstado.SelectedItem.ToString();
-            t.Rol_id = rcln.getRolNombre(cbResponsable.SelectedItem.ToString()).id;
-            t.Tipo = cbTipo.SelectedItem.ToString();
-            t.Horas = int.Parse(tbHoras.Text);
-            t.Historia_id = int.Parse(tbHistoria.Text.ToString());
-            //adicionamos la cantidad de tareas al sprint y ademas
-            //incrementamos la cantidad de horas para el sprint de todas las tareas
-            t.Sprint_id = int.Parse(tbSprint.Text.ToString());
-            Sprint sprint = new Sprint();
-            sprint = scln.buscarSprint(t.Sprint_id);
-            sprint.Tareas_Pendientes++;
-            sprint.Horas_Pendientes = sprint.Horas_Pendientes + t.Horas;          
-            scln.modificarSprint(sprint);
-            //creamos las tareas
-            tcln.crearTarea(t);
-            MessageBox.Show("Tarea asignada exitosamente");
+            if ((tbNombre.Text.Equals("")) || (tbIdTarea.Text.Equals("")) || (tbHoras.Text.Equals("")))
+                MessageBox.Show("Todos los campos son obligatorios");
+            else
+            {
+                Tarea t = new Tarea();
+                t.id_tarea = int.Parse(tbIdTarea.Text);
+                t.Nombre_Tarea = tbNombre.Text;
+                t.Estado = cbEstado.SelectedItem.ToString();
+                t.Rol_id = rcln.getRolNombre(cbResponsable.SelectedItem.ToString()).id;
+                t.Tipo = cbTipo.SelectedItem.ToString();
+                t.Horas = int.Parse(tbHoras.Text);
+                t.Historia_id = int.Parse(tbHistoria.Text.ToString());
+                //adicionamos la cantidad de tareas al sprint y ademas
+                //incrementamos la cantidad de horas para el sprint de todas las tareas
+                t.Sprint_id = int.Parse(tbSprint.Text.ToString());
+                Sprint sprint = new Sprint();
+                sprint = scln.buscarSprint(t.Sprint_id);
+                sprint.Tareas_Pendientes++;
+                sprint.Horas_Pendientes = sprint.Horas_Pendientes + t.Horas;
+                scln.modificarSprint(sprint);
+                //creamos las tareas
+                tcln.crearTarea(t);
+                MessageBox.Show("Tarea asignada exitosamente");
+            }
             limpiar();
             //cargarDatos();
 

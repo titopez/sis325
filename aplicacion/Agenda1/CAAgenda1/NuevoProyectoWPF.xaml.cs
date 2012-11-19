@@ -37,22 +37,27 @@ namespace CAAgenda1
 
         private void bCrearProy_Click(object sender, RoutedEventArgs e)
         {
-            //creacion proyecto nuevo
-            nombre = tbNuevoProy.Text;
-            fechaIni = DateTime.Parse(dpFechaIni.SelectedDate.ToString());
-            fechaFin = DateTime.Parse(dpFechaFin.SelectedDate.ToString());
-            objetivo = tbObjetivo.Text;
-            caja_tiempo = int.Parse(tbCajatiempo.Text);
-            Necesidad = tbNecedidad.Text;
-            Proyecto p = new Proyecto();
-            p.Nombre = nombre;
-            p.FechaInicio = fechaIni;
-            p.FechaFinalizacion = fechaFin;
-            p.Objetivo = objetivo;
-            p.CajaTiempo = caja_tiempo;
-            p.Necesidad = Necesidad;
-            pcln.crearProyecto(p);
-            MessageBox.Show("El Proyecto " + nombre + " fue Registrado con Exito!!!");
+            if ((tbNuevoProy.Text.Equals("")) || (tbObjetivo.Text.Equals("")) || (tbNecedidad.Text.Equals("")) || (tbCajatiempo.Text.Equals("")))
+                MessageBox.Show("Todos los campos son obligatorios");
+            else
+            {
+                //creacion proyecto nuevo
+                nombre = tbNuevoProy.Text;
+                fechaIni = DateTime.Parse(dpFechaIni.SelectedDate.ToString());
+                fechaFin = DateTime.Parse(dpFechaFin.SelectedDate.ToString());
+                objetivo = tbObjetivo.Text;
+                caja_tiempo = int.Parse(tbCajatiempo.Text);
+                Necesidad = tbNecedidad.Text;
+                Proyecto p = new Proyecto();
+                p.Nombre = nombre;
+                p.FechaInicio = fechaIni;
+                p.FechaFinalizacion = fechaFin;
+                p.Objetivo = objetivo;
+                p.CajaTiempo = caja_tiempo;
+                p.Necesidad = Necesidad;
+                pcln.crearProyecto(p);
+                MessageBox.Show("El Proyecto " + nombre + " fue Registrado con Exito!!!");
+            }
             limpiar();
         }
 

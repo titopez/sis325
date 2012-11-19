@@ -31,15 +31,20 @@ namespace CAAgenda1
 
         private void bCrear_Click(object sender, RoutedEventArgs e)
         {
-            sprint.Duracion = int.Parse(tbDuracion.Text);
-            sprint.Inicio = DateTime.Parse(dpFechaIni.SelectedDate.ToString());
-            sprint.Estado = "Activo";
-            sprint.Horas_Pendientes = 0;
-            sprint.Tareas_Pendientes = 0;
-            sprint.Objetivo = tbObjetivo.ToString();
-            sprint.Proyecto_id = idProy;
-            sprintcln.crearSprint(sprint);
-            MessageBox.Show("Sprint creado correctamente");
+            if ((tbObjetivo.Text.Equals("")) || (tbDuracion.Text.Equals("")))
+                MessageBox.Show("Todos los campos son obligatorios");
+            else
+            {
+                sprint.Duracion = int.Parse(tbDuracion.Text);
+                sprint.Inicio = DateTime.Parse(dpFechaIni.SelectedDate.ToString());
+                sprint.Estado = "Activo";
+                sprint.Horas_Pendientes = 0;
+                sprint.Tareas_Pendientes = 0;
+                sprint.Objetivo = tbObjetivo.ToString();
+                sprint.Proyecto_id = idProy;
+                sprintcln.crearSprint(sprint);
+                MessageBox.Show("Sprint creado correctamente");
+            }
             limpiar();
         }
         private void limpiar()

@@ -12,6 +12,6 @@
         <TextBox Height="23" HorizontalAlignment="Left" Margin="173,102,0,0" Name="tbRolSecundario" VerticalAlignment="Top" Width="134" />
         <Button Content="Crear" Height="23" HorizontalAlignment="Left" Margin="108,195,0,0" Name="bCrearRol" VerticalAlignment="Top" Width="75" Click="bCrearRol_Click" />
         <Button Content="Cancelar" Height="23" HorizontalAlignment="Right" Margin="0,195,115,0" Name="bCancelar" VerticalAlignment="Top" Width="75" Click="bCancelar_Click" />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="173,141,0,0" Name="tbProyecto" VerticalAlignment="Top" Width="232" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="173,141,0,0" Name="tbProyecto" VerticalAlignment="Top" Width="232" IsEnabled="False" />
     </Grid>
 </Window>

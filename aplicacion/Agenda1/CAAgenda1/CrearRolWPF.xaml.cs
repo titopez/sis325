@@ -33,14 +33,20 @@ namespace CAAgenda1
 
         private void bCrearRol_Click(object sender, RoutedEventArgs e)
         {
-            Rol r = new Rol();
-            r.NombreCompleto = tbNombre.Text;
-            r.Responsabilidad = tbRol.Text;
-            r.ResponsabilidadSecundaria = tbRolSecundario.Text;
-            proy = pcln.getProyecto(tbProyecto.Text);
-            r.Proyecto_id = proy.id;
-            rolcln.crearRol(r);
-            MessageBox.Show("Rol asignado a proyecto correctamente");
+            if ((tbNombre.Text.Equals("")) || (tbRol.Text.Equals("")) || (tbRolSecundario.Text.Equals("")))
+                MessageBox.Show("Todos los campos son obligatorios");
+            else
+            {
+                Rol r = new Rol();
+                r.NombreCompleto = tbNombre.Text;
+                r.Responsabilidad = tbRol.Text;
+                r.ResponsabilidadSecundaria = tbRolSecundario.Text;
+                proy = pcln.getProyecto(tbProyecto.Text);
+                r.Proyecto_id = proy.id;
+                rolcln.crearRol(r);
+                MessageBox.Show("Rol asignado a proyecto correctamente");
+            }
+
             limpiar();
         }
 
