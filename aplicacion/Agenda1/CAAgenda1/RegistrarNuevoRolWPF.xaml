@@ -1,0 +1,40 @@
+﻿<Window x:Class="CAAgenda1.RegistrarNuevoRolWPF"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Registrar un Nuevo Rol" Height="350" Width="887" Name="wNuevoRol">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="146*" />
+            <RowDefinition Height="81*" />
+            <RowDefinition Height="84*" />
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="/CAAgenda1;component/Images/Android_Wallpaper_by_clondike7.png" />
+        </Grid.Background>
+        <Label Content="Nombre Completo:" Height="28" HorizontalAlignment="Left" Margin="172,74,0,0" Name="lNombre" VerticalAlignment="Top" />
+        <Label Content="Rol:" Height="28" HorizontalAlignment="Left" Margin="254,118,0,0" Name="lRol" VerticalAlignment="Top" />
+        <Label Content="Rol Secundario:" Height="28" HorizontalAlignment="Left" Margin="192,156,0,0" Name="lRolSec" VerticalAlignment="Top" Grid.RowSpan="2" />
+        <Button Content="Registrar" Height="44" HorizontalAlignment="Left" Margin="158,14,0,0" Name="bRegistrarRol" VerticalAlignment="Top" Width="89" Click="bRegistrarRol_Click" Grid.Row="2" />
+        <Button Content="Cancelar" Height="44" HorizontalAlignment="Right" Margin="0,14,378,0" Name="bCancelar" VerticalAlignment="Top" Width="76" Click="bCancelar_Click" Grid.Row="2" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="290,76,0,0" Name="tbNombre" VerticalAlignment="Top" Width="197" Text="{Binding SelectedItem.NombreCompleto, ElementName=dgRoles}" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="290,120,0,0" Name="tbRol" VerticalAlignment="Top" Width="170" Text="{Binding SelectedItem.Responsabilidad, ElementName=dgRoles}" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="290,158,0,0" Name="tbRolSec" VerticalAlignment="Top" Width="170" Grid.RowSpan="2" Text="{Binding SelectedItem.ResponsabilidadSecundaria, ElementName=dgRoles}" />
+        <TextBox Height="23" HorizontalAlignment="Left" Name="tbProyecto" VerticalAlignment="Top" Width="865" IsEnabled="False" FontFamily="Consolas" FontSize="16" FontWeight="Bold" />
+        <Border BorderBrush="Silver" BorderThickness="1" Grid.RowSpan="2" Height="154" HorizontalAlignment="Left" Margin="12,58,0,0" Name="border1" VerticalAlignment="Top" Width="154">
+            <Border.Background>
+                <ImageBrush ImageSource="/CAAgenda1;component/Images/001.png.jpg" />
+            </Border.Background>
+        </Border>
+        <Button Content="Modificar" Grid.Row="2" Height="44" HorizontalAlignment="Left" Margin="319,14,0,0" Name="button1" VerticalAlignment="Top" Width="86" Click="button1_Click" />
+        <DataGrid AutoGenerateColumns="False" Grid.RowSpan="3" Height="272" HorizontalAlignment="Left" Margin="508,27,0,0" Name="dgRoles" VerticalAlignment="Top" Width="345" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding id}" Header="Id" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding NombreCompleto}" Header="Nombre" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Responsabilidad}" Header="Responsabilidad" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding ResponsabilidadSecundaria}" Header="Resp. Secundaria" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Proyecto_id}" Header="Proyecto" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="820,0,0,0" Name="tbIdr" VerticalAlignment="Top" Width="45" IsEnabled="False" Text="{Binding SelectedItem.id, ElementName=dgRoles}" />
+    </Grid>
+</Window>
