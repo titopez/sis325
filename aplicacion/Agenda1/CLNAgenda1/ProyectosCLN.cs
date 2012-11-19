@@ -55,6 +55,13 @@ namespace CLNAgenda1
             p = contexto.Proyectos.FirstOrDefault(consulta => consulta.Nombre == nombre);
             return p;
         }
+
+        public Proyecto getProyectoId(int id)
+        {
+            Proyecto p = new Proyecto();
+            p = contexto.Proyectos.FirstOrDefault(consulta => consulta.id == id);
+            return p;
+        }
         public IQueryable<object> seleccionar(String nombre)
         {
             var resultado = (from p in contexto.Proyectos

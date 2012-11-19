@@ -20,9 +20,10 @@ using System.Runtime.Serialization;
 
 [assembly: EdmRelationshipAttribute("ScrumBDModel", "RolesDeUnProyecto", "Proyecto", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CADAgenda1.Proyecto), "Rol", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CADAgenda1.Rol), true)]
 [assembly: EdmRelationshipAttribute("ScrumBDModel", "HistoriasDeUnProyecto", "Proyecto", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CADAgenda1.Proyecto), "Historia", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CADAgenda1.Historia), true)]
-[assembly: EdmRelationshipAttribute("ScrumBDModel", "RolesdeTarea", "Rol", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CADAgenda1.Rol), "Tarea", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CADAgenda1.Tarea))]
-[assembly: EdmRelationshipAttribute("ScrumBDModel", "TareasdelSprint", "Tarea", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CADAgenda1.Tarea), "Sprint", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CADAgenda1.Sprint), true)]
-[assembly: EdmRelationshipAttribute("ScrumBDModel", "HistoriasdelSprint", "Historia", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CADAgenda1.Historia), "Sprint", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CADAgenda1.Sprint), true)]
+[assembly: EdmRelationshipAttribute("ScrumBDModel", "TareasDeUnaHistoria", "Historia", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CADAgenda1.Historia), "Tarea", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CADAgenda1.Tarea), true)]
+[assembly: EdmRelationshipAttribute("ScrumBDModel", "TareasDeUnSprint", "Sprint", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CADAgenda1.Sprint), "Tarea", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CADAgenda1.Tarea), true)]
+[assembly: EdmRelationshipAttribute("ScrumBDModel", "ResponsableDeTares", "Rol", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CADAgenda1.Rol), "Tarea", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CADAgenda1.Tarea), true)]
+[assembly: EdmRelationshipAttribute("ScrumBDModel", "SprintsDeUnProyecto", "Proyecto", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CADAgenda1.Proyecto), "Sprint", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CADAgenda1.Sprint), true)]
 
 #endregion
 
@@ -224,8 +225,7 @@ namespace CADAgenda1
         /// <param name="habilitado">Valor inicial de la propiedad Habilitado.</param>
         /// <param name="proyecto_id">Valor inicial de la propiedad Proyecto_id.</param>
         /// <param name="cantidad_Horas">Valor inicial de la propiedad Cantidad_Horas.</param>
-        /// <param name="sprint_id_Sprint">Valor inicial de la propiedad Sprint_id_Sprint.</param>
-        public static Historia CreateHistoria(global::System.Int32 id, global::System.String descripcion, global::System.Int32 prioridad, global::System.Boolean habilitado, global::System.Int32 proyecto_id, global::System.Int32 cantidad_Horas, global::System.Int32 sprint_id_Sprint)
+        public static Historia CreateHistoria(global::System.Int32 id, global::System.String descripcion, global::System.Int32 prioridad, global::System.Boolean habilitado, global::System.Int32 proyecto_id, global::System.Int32 cantidad_Horas)
         {
             Historia historia = new Historia();
             historia.id = id;
@@ -234,7 +234,6 @@ namespace CADAgenda1
             historia.Habilitado = habilitado;
             historia.Proyecto_id = proyecto_id;
             historia.Cantidad_Horas = cantidad_Horas;
-            historia.Sprint_id_Sprint = sprint_id_Sprint;
             return historia;
         }
 
@@ -387,30 +386,6 @@ namespace CADAgenda1
         private global::System.Int32 _Cantidad_Horas;
         partial void OnCantidad_HorasChanging(global::System.Int32 value);
         partial void OnCantidad_HorasChanged();
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 Sprint_id_Sprint
-        {
-            get
-            {
-                return _Sprint_id_Sprint;
-            }
-            set
-            {
-                OnSprint_id_SprintChanging(value);
-                ReportPropertyChanging("Sprint_id_Sprint");
-                _Sprint_id_Sprint = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Sprint_id_Sprint");
-                OnSprint_id_SprintChanged();
-            }
-        }
-        private global::System.Int32 _Sprint_id_Sprint;
-        partial void OnSprint_id_SprintChanging(global::System.Int32 value);
-        partial void OnSprint_id_SprintChanged();
 
         #endregion
     
@@ -460,34 +435,18 @@ namespace CADAgenda1
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ScrumBDModel", "HistoriasdelSprint", "Sprint")]
-        public Sprint Sprint
+        [EdmRelationshipNavigationPropertyAttribute("ScrumBDModel", "TareasDeUnaHistoria", "Tarea")]
+        public EntityCollection<Tarea> Tareas
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Sprint>("ScrumBDModel.HistoriasdelSprint", "Sprint").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Sprint>("ScrumBDModel.HistoriasdelSprint", "Sprint").Value = value;
-            }
-        }
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Sprint> SprintReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Sprint>("ScrumBDModel.HistoriasdelSprint", "Sprint");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Tarea>("ScrumBDModel.TareasDeUnaHistoria", "Tarea");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Sprint>("ScrumBDModel.HistoriasdelSprint", "Sprint", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Tarea>("ScrumBDModel.TareasDeUnaHistoria", "Tarea", value);
                 }
             }
         }
@@ -749,6 +708,28 @@ namespace CADAgenda1
                 }
             }
         }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ScrumBDModel", "SprintsDeUnProyecto", "Sprint")]
+        public EntityCollection<Sprint> Sprints
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Sprint>("ScrumBDModel.SprintsDeUnProyecto", "Sprint");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Sprint>("ScrumBDModel.SprintsDeUnProyecto", "Sprint", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -956,18 +937,18 @@ namespace CADAgenda1
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ScrumBDModel", "RolesdeTarea", "Tarea")]
-        public EntityCollection<Tarea> Tarea
+        [EdmRelationshipNavigationPropertyAttribute("ScrumBDModel", "ResponsableDeTares", "Tarea")]
+        public EntityCollection<Tarea> Tareas
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Tarea>("ScrumBDModel.RolesdeTarea", "Tarea");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Tarea>("ScrumBDModel.ResponsableDeTares", "Tarea");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Tarea>("ScrumBDModel.RolesdeTarea", "Tarea", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Tarea>("ScrumBDModel.ResponsableDeTares", "Tarea", value);
                 }
             }
         }
@@ -988,21 +969,19 @@ namespace CADAgenda1
         /// <summary>
         /// Crear un nuevo objeto Sprint.
         /// </summary>
-        /// <param name="id_Sprint">Valor inicial de la propiedad id_Sprint.</param>
+        /// <param name="id">Valor inicial de la propiedad id.</param>
         /// <param name="inicio">Valor inicial de la propiedad Inicio.</param>
         /// <param name="duracion">Valor inicial de la propiedad Duracion.</param>
-        /// <param name="estado">Valor inicial de la propiedad Estado.</param>
-        /// <param name="tareas_Pendientes">Valor inicial de la propiedad Tareas_Pendientes.</param>
-        /// <param name="horas_Pendientes">Valor inicial de la propiedad Horas_Pendientes.</param>
-        public static Sprint CreateSprint(global::System.Int32 id_Sprint, global::System.DateTime inicio, global::System.Int32 duracion, global::System.String estado, global::System.Int32 tareas_Pendientes, global::System.Int32 horas_Pendientes)
+        /// <param name="objetivo">Valor inicial de la propiedad Objetivo.</param>
+        /// <param name="proyecto_id">Valor inicial de la propiedad Proyecto_id.</param>
+        public static Sprint CreateSprint(global::System.Int32 id, global::System.DateTime inicio, global::System.Int32 duracion, global::System.String objetivo, global::System.Int32 proyecto_id)
         {
             Sprint sprint = new Sprint();
-            sprint.id_Sprint = id_Sprint;
+            sprint.id = id;
             sprint.Inicio = inicio;
             sprint.Duracion = duracion;
-            sprint.Estado = estado;
-            sprint.Tareas_Pendientes = tareas_Pendientes;
-            sprint.Horas_Pendientes = horas_Pendientes;
+            sprint.Objetivo = objetivo;
+            sprint.Proyecto_id = proyecto_id;
             return sprint;
         }
 
@@ -1014,27 +993,27 @@ namespace CADAgenda1
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 id_Sprint
+        public global::System.Int32 id
         {
             get
             {
-                return _id_Sprint;
+                return _id;
             }
             set
             {
-                if (_id_Sprint != value)
+                if (_id != value)
                 {
-                    Onid_SprintChanging(value);
-                    ReportPropertyChanging("id_Sprint");
-                    _id_Sprint = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("id_Sprint");
-                    Onid_SprintChanged();
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id");
+                    OnidChanged();
                 }
             }
         }
-        private global::System.Int32 _id_Sprint;
-        partial void Onid_SprintChanging(global::System.Int32 value);
-        partial void Onid_SprintChanged();
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
     
         /// <summary>
         /// No hay documentación de metadatos disponible.
@@ -1087,7 +1066,7 @@ namespace CADAgenda1
         /// <summary>
         /// No hay documentación de metadatos disponible.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Estado
         {
@@ -1099,7 +1078,7 @@ namespace CADAgenda1
             {
                 OnEstadoChanging(value);
                 ReportPropertyChanging("Estado");
-                _Estado = StructuralObject.SetValidValue(value, false);
+                _Estado = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Estado");
                 OnEstadoChanged();
             }
@@ -1111,9 +1090,9 @@ namespace CADAgenda1
         /// <summary>
         /// No hay documentación de metadatos disponible.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 Tareas_Pendientes
+        public Nullable<global::System.Int32> Tareas_Pendientes
         {
             get
             {
@@ -1128,16 +1107,16 @@ namespace CADAgenda1
                 OnTareas_PendientesChanged();
             }
         }
-        private global::System.Int32 _Tareas_Pendientes;
-        partial void OnTareas_PendientesChanging(global::System.Int32 value);
+        private Nullable<global::System.Int32> _Tareas_Pendientes;
+        partial void OnTareas_PendientesChanging(Nullable<global::System.Int32> value);
         partial void OnTareas_PendientesChanged();
     
         /// <summary>
         /// No hay documentación de metadatos disponible.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 Horas_Pendientes
+        public Nullable<global::System.Int32> Horas_Pendientes
         {
             get
             {
@@ -1152,9 +1131,81 @@ namespace CADAgenda1
                 OnHoras_PendientesChanged();
             }
         }
-        private global::System.Int32 _Horas_Pendientes;
-        partial void OnHoras_PendientesChanging(global::System.Int32 value);
+        private Nullable<global::System.Int32> _Horas_Pendientes;
+        partial void OnHoras_PendientesChanging(Nullable<global::System.Int32> value);
         partial void OnHoras_PendientesChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Objetivo
+        {
+            get
+            {
+                return _Objetivo;
+            }
+            set
+            {
+                OnObjetivoChanging(value);
+                ReportPropertyChanging("Objetivo");
+                _Objetivo = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Objetivo");
+                OnObjetivoChanged();
+            }
+        }
+        private global::System.String _Objetivo;
+        partial void OnObjetivoChanging(global::System.String value);
+        partial void OnObjetivoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Jornada
+        {
+            get
+            {
+                return _Jornada;
+            }
+            set
+            {
+                OnJornadaChanging(value);
+                ReportPropertyChanging("Jornada");
+                _Jornada = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Jornada");
+                OnJornadaChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Jornada;
+        partial void OnJornadaChanging(Nullable<global::System.Int32> value);
+        partial void OnJornadaChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Proyecto_id
+        {
+            get
+            {
+                return _Proyecto_id;
+            }
+            set
+            {
+                OnProyecto_idChanging(value);
+                ReportPropertyChanging("Proyecto_id");
+                _Proyecto_id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Proyecto_id");
+                OnProyecto_idChanged();
+            }
+        }
+        private global::System.Int32 _Proyecto_id;
+        partial void OnProyecto_idChanging(global::System.Int32 value);
+        partial void OnProyecto_idChanged();
 
         #endregion
     
@@ -1166,18 +1217,18 @@ namespace CADAgenda1
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ScrumBDModel", "TareasdelSprint", "Tarea")]
+        [EdmRelationshipNavigationPropertyAttribute("ScrumBDModel", "TareasDeUnSprint", "Tarea")]
         public EntityCollection<Tarea> Tareas
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Tarea>("ScrumBDModel.TareasdelSprint", "Tarea");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Tarea>("ScrumBDModel.TareasDeUnSprint", "Tarea");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Tarea>("ScrumBDModel.TareasdelSprint", "Tarea", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Tarea>("ScrumBDModel.TareasDeUnSprint", "Tarea", value);
                 }
             }
         }
@@ -1188,18 +1239,34 @@ namespace CADAgenda1
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ScrumBDModel", "HistoriasdelSprint", "Historia")]
-        public EntityCollection<Historia> Historias
+        [EdmRelationshipNavigationPropertyAttribute("ScrumBDModel", "SprintsDeUnProyecto", "Proyecto")]
+        public Proyecto Proyecto
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Historia>("ScrumBDModel.HistoriasdelSprint", "Historia");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Proyecto>("ScrumBDModel.SprintsDeUnProyecto", "Proyecto").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Proyecto>("ScrumBDModel.SprintsDeUnProyecto", "Proyecto").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Proyecto> ProyectoReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Proyecto>("ScrumBDModel.SprintsDeUnProyecto", "Proyecto");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Historia>("ScrumBDModel.HistoriasdelSprint", "Historia", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Proyecto>("ScrumBDModel.SprintsDeUnProyecto", "Proyecto", value);
                 }
             }
         }
@@ -1225,8 +1292,10 @@ namespace CADAgenda1
         /// <param name="tipo">Valor inicial de la propiedad Tipo.</param>
         /// <param name="estado">Valor inicial de la propiedad Estado.</param>
         /// <param name="horas">Valor inicial de la propiedad Horas.</param>
-        /// <param name="sprint_id_Sprint">Valor inicial de la propiedad Sprint_id_Sprint.</param>
-        public static Tarea CreateTarea(global::System.Int32 id_tarea, global::System.String nombre_Tarea, global::System.String tipo, global::System.String estado, global::System.Int32 horas, global::System.Int32 sprint_id_Sprint)
+        /// <param name="historia_id">Valor inicial de la propiedad Historia_id.</param>
+        /// <param name="sprint_id">Valor inicial de la propiedad Sprint_id.</param>
+        /// <param name="rol_id">Valor inicial de la propiedad Rol_id.</param>
+        public static Tarea CreateTarea(global::System.Int32 id_tarea, global::System.String nombre_Tarea, global::System.String tipo, global::System.String estado, global::System.Int32 horas, global::System.Int32 historia_id, global::System.Int32 sprint_id, global::System.Int32 rol_id)
         {
             Tarea tarea = new Tarea();
             tarea.id_tarea = id_tarea;
@@ -1234,7 +1303,9 @@ namespace CADAgenda1
             tarea.Tipo = tipo;
             tarea.Estado = estado;
             tarea.Horas = horas;
-            tarea.Sprint_id_Sprint = sprint_id_Sprint;
+            tarea.Historia_id = historia_id;
+            tarea.Sprint_id = sprint_id;
+            tarea.Rol_id = rol_id;
             return tarea;
         }
 
@@ -1369,24 +1440,72 @@ namespace CADAgenda1
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Sprint_id_Sprint
+        public global::System.Int32 Historia_id
         {
             get
             {
-                return _Sprint_id_Sprint;
+                return _Historia_id;
             }
             set
             {
-                OnSprint_id_SprintChanging(value);
-                ReportPropertyChanging("Sprint_id_Sprint");
-                _Sprint_id_Sprint = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Sprint_id_Sprint");
-                OnSprint_id_SprintChanged();
+                OnHistoria_idChanging(value);
+                ReportPropertyChanging("Historia_id");
+                _Historia_id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Historia_id");
+                OnHistoria_idChanged();
             }
         }
-        private global::System.Int32 _Sprint_id_Sprint;
-        partial void OnSprint_id_SprintChanging(global::System.Int32 value);
-        partial void OnSprint_id_SprintChanged();
+        private global::System.Int32 _Historia_id;
+        partial void OnHistoria_idChanging(global::System.Int32 value);
+        partial void OnHistoria_idChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Sprint_id
+        {
+            get
+            {
+                return _Sprint_id;
+            }
+            set
+            {
+                OnSprint_idChanging(value);
+                ReportPropertyChanging("Sprint_id");
+                _Sprint_id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Sprint_id");
+                OnSprint_idChanged();
+            }
+        }
+        private global::System.Int32 _Sprint_id;
+        partial void OnSprint_idChanging(global::System.Int32 value);
+        partial void OnSprint_idChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Rol_id
+        {
+            get
+            {
+                return _Rol_id;
+            }
+            set
+            {
+                OnRol_idChanging(value);
+                ReportPropertyChanging("Rol_id");
+                _Rol_id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Rol_id");
+                OnRol_idChanged();
+            }
+        }
+        private global::System.Int32 _Rol_id;
+        partial void OnRol_idChanging(global::System.Int32 value);
+        partial void OnRol_idChanged();
 
         #endregion
     
@@ -1398,16 +1517,16 @@ namespace CADAgenda1
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ScrumBDModel", "RolesdeTarea", "Rol")]
-        public Rol Rol
+        [EdmRelationshipNavigationPropertyAttribute("ScrumBDModel", "TareasDeUnaHistoria", "Historia")]
+        public Historia Historia
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rol>("ScrumBDModel.RolesdeTarea", "Rol").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Historia>("ScrumBDModel.TareasDeUnaHistoria", "Historia").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rol>("ScrumBDModel.RolesdeTarea", "Rol").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Historia>("ScrumBDModel.TareasDeUnaHistoria", "Historia").Value = value;
             }
         }
         /// <summary>
@@ -1415,17 +1534,17 @@ namespace CADAgenda1
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Rol> RolReference
+        public EntityReference<Historia> HistoriaReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rol>("ScrumBDModel.RolesdeTarea", "Rol");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Historia>("ScrumBDModel.TareasDeUnaHistoria", "Historia");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Rol>("ScrumBDModel.RolesdeTarea", "Rol", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Historia>("ScrumBDModel.TareasDeUnaHistoria", "Historia", value);
                 }
             }
         }
@@ -1436,16 +1555,16 @@ namespace CADAgenda1
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ScrumBDModel", "TareasdelSprint", "Sprint")]
+        [EdmRelationshipNavigationPropertyAttribute("ScrumBDModel", "TareasDeUnSprint", "Sprint")]
         public Sprint Sprint
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Sprint>("ScrumBDModel.TareasdelSprint", "Sprint").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Sprint>("ScrumBDModel.TareasDeUnSprint", "Sprint").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Sprint>("ScrumBDModel.TareasdelSprint", "Sprint").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Sprint>("ScrumBDModel.TareasDeUnSprint", "Sprint").Value = value;
             }
         }
         /// <summary>
@@ -1457,13 +1576,51 @@ namespace CADAgenda1
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Sprint>("ScrumBDModel.TareasdelSprint", "Sprint");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Sprint>("ScrumBDModel.TareasDeUnSprint", "Sprint");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Sprint>("ScrumBDModel.TareasdelSprint", "Sprint", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Sprint>("ScrumBDModel.TareasDeUnSprint", "Sprint", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ScrumBDModel", "ResponsableDeTares", "Rol")]
+        public Rol Rol
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rol>("ScrumBDModel.ResponsableDeTares", "Rol").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rol>("ScrumBDModel.ResponsableDeTares", "Rol").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Rol> RolReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rol>("ScrumBDModel.ResponsableDeTares", "Rol");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Rol>("ScrumBDModel.ResponsableDeTares", "Rol", value);
                 }
             }
         }

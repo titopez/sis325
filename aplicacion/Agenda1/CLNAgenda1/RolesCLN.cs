@@ -25,10 +25,30 @@ namespace CLNAgenda1
             contexto.SaveChanges();
         }
 
-        public List<Rol> mostrar()
+        public List<Rol> listarRoles()
         {
             var roles = contexto.Roles;
             return roles.ToList();
+        }
+
+        public Rol getRolNombre(String nombre)
+        {
+            Rol r = new Rol();
+            r = contexto.Roles.FirstOrDefault(consulta => consulta.NombreCompleto == nombre);
+            return r;
+        }
+
+        public void modificarRol(Rol r)
+        {
+            contexto.Roles.ApplyCurrentValues(r);
+            contexto.SaveChanges();
+        }
+
+        public Rol buscarRol(int id)
+        {
+            Rol r = new Rol();
+            r = contexto.Roles.FirstOrDefault(consulta => consulta.id == id);
+            return r;
         }
     }
 }

@@ -24,85 +24,63 @@ namespace CAAgenda1
         private String desc;
         private bool habilitar;
         private int prioridad;
-        private string nombrep;
         private int Horas;
         private HistoriasCLN hcln = new HistoriasCLN();
+        private SprintsCLN scln = new SprintsCLN();
         private Proyecto p = new Proyecto();
         private ProyectosCLN pcln = new ProyectosCLN();
         Historia h = new Historia();
-        public delegate Point GetDrapDropPosition(IInputElement theElement);
-        int prevRowIndex = -1;
 
         public RegistrarHistoriasWPF()
         {
             InitializeComponent();
-            listarHistorias();
             hcln.ordenar();
         }
 
         Form2proyectoM fp = new Form2proyectoM();
-        private bool IstheMouseOnTargetRow(Visual theTarget, GetDrapDropPosition pos)
-        {
-            Rect posBounds = VisualTreeHelper.GetDescendantBounds(theTarget);
-            Point theMousePos = pos((IInputElement)theTarget);
-            return posBounds.Contains(theMousePos);
-        }
-        private DataGridRow GetDataGridRowItem(int index)
-        {
-            if (dgHistorias.ItemContainerGenerator.Status != 
-                    System.Windows.Controls.Primitives.GeneratorStatus.ContainersGenerated)
-                return null;
-            return dgHistorias.ItemContainerGenerator.ContainerFromIndex(index) as DataGridRow; 
-        }
-        private int GetDataGridItemCurrentRowIndex(GetDrapDropPosition pos)
-        {
-            int curindex = -1;
-            for (int i = 0; i < dgHistorias.Items.Count; i++)
-            {
-                DataGridRow itm = GetDataGridRowItem(i);
-                if (IstheMouseOnTargetRow(itm, pos))
-                {
-                    curindex = i;
-                    break;
-                }
-            }
-            return curindex;
-        }
-        
+       
         private void bRegistrar_Click(object sender, RoutedEventArgs e)
         {
             desc = tbDescripcion.Text;
-            habilitar = chbHabilitar.IsChecked.Value;
             prioridad = int.Parse(cbPrioridad.Text);
-            nombrep = tbnombrep.Text;
+            habilitar = chbHabilitar.IsChecked.Value;
             Horas = int.Parse(tbHoras.Text);
-            p = pcln.getProyecto(nombrep);
+            p = pcln.getProyecto(tbnombrep.Text);
             h.Descripcion = desc;
             h.Prioridad = prioridad;
             h.Habilitado = habilitar;
             h.Proyecto_id = p.id;
             h.Cantidad_Horas = Horas;
+            h.Sprint_id_Sprint = 1;
             hcln.crearHistoria(h);
-            MessageBox.Show("La historia fue registrada exitosamente");
-            listarHistorias();
+            MessageBox.Show("Se hizo el registro de la Historia con exito!!");
+            dgHistorias.ItemsSource = hcln.listar(p.id);
             hcln.ordenar();
+            tbDescripcion.Clear();
+            cbPrioridad.Text = "";
+            tbHoras.Clear();
+            chbHabilitar.IsChecked = false;
+            
+ 
         }
         private void listarHistorias()
         {
             //dgHistorias.ItemsSource = hcln.listar();
             //dgHistorias.Columns[0].Visibility=0;
-            dgHistorias.ItemsSource = hcln.listar();
+            p = pcln.getProyecto(tbnombrep.Text);
+            dgHistorias.ItemsSource = hcln.listar(p.id);
             //dgHistorias.ItemsSource = hcln.ordenar();
         }
 
         private void bCancelar_Click(object sender, RoutedEventArgs e)
         {
-            int id;
             desc = tbDescripcion.Text;
             h = hcln.getHistoria(desc);
-            id = h.id;
+            p = pcln.getProyecto(tbnombrep.Text);
+            h.id = int.Parse(tbIDH.Text);
             hcln.eliminarHistoria(h);
             MessageBox.Show("se elimino con exito");
+            dgHistorias.ItemsSource = hcln.listar(p.id);
         }
 
         private void wRegistroHist_Loaded(object sender, RoutedEventArgs e)
@@ -118,12 +96,16 @@ namespace CAAgenda1
             h.Habilitado = chbHabilitar.IsChecked.Value;
             h.Cantidad_Horas = int.Parse(tbHoras.Text);
             p = pcln.getProyecto(tbnombrep.Text);
+            h.Sprint_id_Sprint = 1;
             h.Proyecto_id = p.id;
             h.id = int.Parse(tbIDH.Text);
             hcln.modificarHistoria(h);
             MessageBox.Show("se actualizo la historia");
-            hcln.ordenar();
-            
+            dgHistorias.ItemsSource = hcln.listar(p.id);
+            tbDescripcion.Clear();
+            cbPrioridad.Text = "";
+            tbHoras.Clear();
+            chbHabilitar.IsChecked= false;
         }
         private void dgHistorias_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -131,11 +113,18 @@ namespace CAAgenda1
 
         private void btnNuevo_Click(object sender, RoutedEventArgs e)
         {
-            tbDescripcion.Clear();
-            cbPrioridad.Text = "";
-            tbHoras.Text = "";
-            chbHabilitar.IsChecked = false;
-            dgHistorias.IsReadOnly = false;
+            RegistroTareas tareas = new RegistroTareas();
+            if (chbHabilitar.IsChecked.Value == true)
+            {
+                tareas.tbproyecto.Text = tbnombrep.Text;
+                tareas.tbHistoria.Text = tbDescripcion.Text;
+                tareas.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("la historia no se acepto en el primer sprint");
+            }
         }
 
         private void wRegistroHist_Closed(object sender, EventArgs e)
@@ -152,48 +141,12 @@ namespace CAAgenda1
 
         private void dgHistorias_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            prevRowIndex = GetDataGridItemCurrentRowIndex(e.GetPosition);
-            if (prevRowIndex < 0)
-            {
-                return;
-            }
-            dgHistorias.SelectedIndex = prevRowIndex;
-            Historia SelectedHis = dgHistorias.Items[prevRowIndex] as Historia;
-            if (SelectedHis == null)
-            {
-                return;
-            }
-            DragDropEffects dragdropeffects = DragDropEffects.Move;
-            if (DragDrop.DoDragDrop(dgHistorias, SelectedHis, dragdropeffects) != DragDropEffects.None)
-            {
-                dgHistorias.SelectedItem = SelectedHis;
-            }
+           
         }
 
         private void dgHistorias_Drop(object sender, DragEventArgs e)
         {
-            if (prevRowIndex < 0)
-            {
-                return;    
-            }
-            int index = this.GetDataGridItemCurrentRowIndex(e.GetPosition);
-            if (index < 0)
-            {
-                return;
-            }
-            if (index == prevRowIndex)
-            {
-                return;
-            }
-            if (index == dgHistorias.Items.Count - 1)
-            {
-                MessageBox.Show("la fila no puede usar el drop operation");
-                return;
-            }
-            Collection<Historia> myhis = Resources["Id"] as Collection<Historia>;
-            Historia movedHis = myhis[prevRowIndex];
-            myhis.RemoveAt(prevRowIndex);
-            myhis.Insert(index, movedHis);
+            
         }
 
         private void tbIDH_TextChanged(object sender, TextChangedEventArgs e)

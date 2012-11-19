@@ -16,7 +16,7 @@
         <DatePicker Height="25" HorizontalAlignment="Left" Margin="184,70,0,0" Name="dpFechaIni" VerticalAlignment="Top" Width="153" />
         <DatePicker Height="25" HorizontalAlignment="Left" Margin="472,70,0,0" Name="dpFechaFin" VerticalAlignment="Top" Width="153" />
         <Label Content="Caja de Tiempo: " Height="28" HorizontalAlignment="Left" Margin="79,247,0,0" Name="lIncremento" VerticalAlignment="Top" />
-        <TextBox Height="23" HorizontalAlignment="Right" Margin="0,249,385,0" Name="tbCajatiempo" VerticalAlignment="Top" Width="96" />
+        <TextBox Height="23" HorizontalAlignment="Right" Margin="0,249,385,0" Name="tbCajatiempo" VerticalAlignment="Top" Width="96" KeyDown="tbCajatiempo_KeyDown" />
         <TextBox Height="104" HorizontalAlignment="Left" Margin="185,123,0,0" Name="tbObjetivo" VerticalAlignment="Top" Width="431" AcceptsReturn="True" />
         <Label Content="Necesidad" Height="28" HorizontalAlignment="Left" Margin="353,247,0,0" Name="label1" VerticalAlignment="Top" />
         <TextBox Height="87" HorizontalAlignment="Right" Margin="0,247,50,0" Name="tbNecedidad" VerticalAlignment="Top" Width="192" AcceptsReturn="True" />

@@ -5,8 +5,7 @@
     <Grid>
         <Label Content="Elegir Proyecto" Height="28" HorizontalAlignment="Left" Margin="26,33,0,0" Name="label1" VerticalAlignment="Top" />
         <ComboBox Height="23" HorizontalAlignment="Left" Margin="121,33,0,0" Name="cbelegirproyecto" VerticalAlignment="Top" Width="323" />
-        <Button Content="Registrar Proyecto" Height="32" HorizontalAlignment="Left" Margin="204,74,0,0" Name="btnRegistrar" VerticalAlignment="Top" Width="117" Click="btnRegistrar_Click" />
-        <Button Content="Ingresar al Proyecto" Height="32" HorizontalAlignment="Left" Margin="341,74,0,0" Name="btnIngresar" VerticalAlignment="Top" Width="117" Click="button2_Click" />
-        <Button Content="Salir" Height="32" HorizontalAlignment="Left" Margin="12,74,0,0" Name="btnSalir" VerticalAlignment="Top" Width="83" Click="btnSalir_Click" />
+        <Button Content="Ingresar al Proyecto" Height="32" HorizontalAlignment="Left" Margin="253,74,0,0" Name="btnIngresar" VerticalAlignment="Top" Width="117" Click="button2_Click" />
+        <Button Content="Salir" Height="32" HorizontalAlignment="Left" Margin="109,74,0,0" Name="btnSalir" VerticalAlignment="Top" Width="83" Click="btnSalir_Click" />
     </Grid>
 </Window>
