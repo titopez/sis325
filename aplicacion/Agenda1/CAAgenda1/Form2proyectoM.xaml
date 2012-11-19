@@ -1,7 +1,7 @@
 ﻿<Window x:Class="CAAgenda1.Form2proyectoM"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Proyecto" Height="454" Width="672" WindowStartupLocation="CenterOwner">
+        Title="Proyecto" Height="454" Width="672" WindowStartupLocation="CenterOwner" Loaded="Window_Loaded">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/CAAgenda1;component/Images/Android_Wallpaper_by_clondike7.png" />
@@ -22,5 +22,6 @@
         <TextBox AcceptsReturn="True" Height="87" HorizontalAlignment="Right" Margin="0,233,67,0" Name="tbNecedidad" VerticalAlignment="Top" Width="192" />
         <Button Content="Modificar" Height="43" HorizontalAlignment="Left" Margin="34,337,0,0" Name="button1" VerticalAlignment="Top" Width="102" Click="button1_Click" />
         <TextBox Height="23" HorizontalAlignment="Left" Margin="619,0,0,0" Name="tbID" VerticalAlignment="Top" Width="31" IsEnabled="False" />
+        <Button Content="Asignar Eq. Scrum" Height="43" HorizontalAlignment="Left" Margin="259,337,0,0" Name="bEqScrum" VerticalAlignment="Top" Width="114" Click="bEqScrum_Click" />
     </Grid>
 </Window>

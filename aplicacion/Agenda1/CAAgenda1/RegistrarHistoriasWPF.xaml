@@ -35,10 +35,11 @@
         </DataGrid>
         <TextBox Height="23" HorizontalAlignment="Left" Name="tbnombrep" VerticalAlignment="Top" Width="623" IsEnabled="False" Grid.ColumnSpan="2" FontFamily="Consolas" FontWeight="Bold" FontSize="14" />
         <Button Height="42" HorizontalAlignment="Right" Margin="0,206,110,0" Name="btGestionar" VerticalAlignment="Top" Width="131" Content="Guardar Modificacion" Click="button1_Click" Grid.ColumnSpan="2" />
-        <Button Content="Nuevo" Height="42" HorizontalAlignment="Left" Margin="20,206,0,0" Name="btnNuevo" VerticalAlignment="Top" Width="83" Click="btnNuevo_Click" />
         <Button Content="Guardar" Height="42" HorizontalAlignment="Left" Margin="235,270,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="92" Grid.Column="1" />
         <Label Content="Estimacion de Horas" Height="28" HorizontalAlignment="Left" Margin="33,165,0,0" Name="label1" VerticalAlignment="Top" />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="159,167,0,0" Name="tbHoras" VerticalAlignment="Top" Width="101" Text="{Binding SelectedItem.Cantidad_Horas, ElementName=dgHistorias}" />
-        <TextBox Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="129,0,0,0" Name="tbIDH" VerticalAlignment="Top" Width="32" TextChanged="tbIDH_TextChanged" IsEnabled="False" Text="{Binding SelectedItem.id, ElementName=dgHistorias}" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="159,167,0,0" Name="tbHoras" VerticalAlignment="Top" Width="101" Text="{Binding SelectedItem.Cantidad_Horas, ElementName=dgHistorias}" KeyDown="tbHoras_KeyDown" />
+        <TextBox Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="129,0,0,0" Name="tbIDH" VerticalAlignment="Top" Width="32" IsEnabled="False" Text="{Binding SelectedItem.id, ElementName=dgHistorias}" />
+        <Button Content="Cerrar" Height="42" HorizontalAlignment="Left" Margin="12,206,0,0" Name="bCerrar" VerticalAlignment="Top" Width="102" Click="bCerrar_Click" />
+        <Button Content="Crear Sprint" Height="42" HorizontalAlignment="Left" Margin="250,206,0,0" Name="bCrearSprint" VerticalAlignment="Top" Width="116" Click="bCrearSprint_Click" />
     </Grid>
 </Window>

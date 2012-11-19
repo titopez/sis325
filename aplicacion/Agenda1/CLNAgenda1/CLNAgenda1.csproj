@@ -45,6 +45,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProyectosCLN.cs" />
     <Compile Include="RolesCLN.cs" />
+    <Compile Include="SprintCLN.cs" />
+    <Compile Include="TareaCLN.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CADAgenda1\CADAgenda1.csproj">

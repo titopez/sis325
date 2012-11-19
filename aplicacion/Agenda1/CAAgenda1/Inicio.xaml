@@ -4,8 +4,9 @@
         Title="Inicio" Height="430" Width="698" Closed="Window_Closed" WindowStartupLocation="CenterScreen">
     <Grid>
         <Menu HorizontalAlignment="Left" Margin="0,1,0,363" Name="menu1" Width="676" FontFamily="Consolas" FontSize="14" FontWeight="Normal" FontStretch="Normal" Foreground="#FFFFFFAD" Background="#FF1A0707">
-            <MenuItem Header="Archivo" >
-                <MenuItem Header="Iniciar Proyecto" Click="MenuItem_Click" Background="Black" Name="itemProyecto"/>
+            <MenuItem Header="Archivo">
+                <MenuItem Header="Abrir Proyecto" Background="Black" Name="itemProyecto" Click="MenuItem_Click"/>
+                <MenuItem Header="Crear Proyecto" Background="Black" Click="MenuItem_Click_2"/>
                 <MenuItem Header="Salir" Background="Black" Click="MenuItem_Click_1"/>
             </MenuItem>
         </Menu>

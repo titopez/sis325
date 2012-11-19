@@ -21,11 +21,13 @@ namespace CAAgenda1
     public partial class Form2proyectoM : Window
     {
         string nombre_proyecto;
-        private ProyectosCLN phcln = new ProyectosCLN();
-        Proyecto proyecto = new Proyecto(); 
-        public Form2proyectoM()
+        private ProyectosCLN pcln = new ProyectosCLN();
+        private Proyecto proyecto = new Proyecto();
+        private int idProy;
+        public Form2proyectoM(int id)
         {
             InitializeComponent();
+            idProy = id;
         }
 
         private void bCancelar_Click(object sender, RoutedEventArgs e)
@@ -40,9 +42,9 @@ namespace CAAgenda1
         }
         private void bCrearHistoria_Click(object sender, RoutedEventArgs e)
         {
-            RegistrarHistoriasWPF rh =new RegistrarHistoriasWPF();
+            RegistrarHistoriasWPF rh =new RegistrarHistoriasWPF(idProy);
             rh.Show();
-            rh.tbnombrep.Text = this.getnombrep();
+            //rh.tbnombrep.Text = this.getnombrep();
             this.Hide();
         }
 
@@ -55,9 +57,26 @@ namespace CAAgenda1
             proyecto.Objetivo = tbObjetivo.Text;
             proyecto.Necesidad = tbNecedidad.Text;
             proyecto.id = int.Parse(tbID.Text);
-            phcln.modificarProyecto(proyecto);
+            pcln.modificarProyecto(proyecto);
             MessageBox.Show("se modifico el Proyecto");
             button1.IsEnabled = false;
+        }
+
+        private void bEqScrum_Click(object sender, RoutedEventArgs e)
+        {
+            CrearRolWPF rolwpf = new CrearRolWPF(idProy);
+            rolwpf.Show();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            tbID.Text = pcln.getProyectoId(idProy).id.ToString();
+            tbNuevoProy.Text = pcln.getProyectoId(idProy).Nombre;
+            dpFechaIni.Text = pcln.getProyectoId(idProy).FechaInicio.ToString();
+            dpFechaFin.Text = pcln.getProyectoId(idProy).FechaFinalizacion.ToString();
+            tbObjetivo.Text = pcln.getProyectoId(idProy).Objetivo;
+            tbCajatiempo.Text = pcln.getProyectoId(idProy).CajaTiempo.ToString();
+            tbNecedidad.Text = pcln.getProyectoId(idProy).Necesidad.ToString();
         }
 
     }

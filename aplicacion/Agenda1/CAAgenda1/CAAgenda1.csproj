@@ -57,6 +57,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CrearRolWPF.xaml.cs">
+      <DependentUpon>CrearRolWPF.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CrearSprintWPF.xaml.cs">
+      <DependentUpon>CrearSprintWPF.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CrearTareaWPF.xaml.cs">
+      <DependentUpon>CrearTareaWPF.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Form2proyectoM.xaml.cs">
       <DependentUpon>Form2proyectoM.xaml</DependentUpon>
     </Compile>
@@ -72,9 +81,18 @@
     <Compile Include="RegistrarHistoriasWPF.xaml.cs">
       <DependentUpon>RegistrarHistoriasWPF.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RegistrarNuevoRolWPF.xaml.cs">
-      <DependentUpon>RegistrarNuevoRolWPF.xaml</DependentUpon>
-    </Compile>
+    <Page Include="CrearRolWPF.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CrearSprintWPF.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CrearTareaWPF.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Form2proyectoM.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -91,16 +109,8 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="NuevoProyectoWPF.xaml">
@@ -108,10 +118,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RegistrarHistoriasWPF.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="RegistrarNuevoRolWPF.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -156,6 +162,9 @@
       <Project>{4BA01F14-1A02-4CAD-BA2C-363DEDD12892}</Project>
       <Name>CLNAgenda1</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

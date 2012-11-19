@@ -38,5 +38,11 @@ namespace CAAgenda1
         {
             App.Current.Shutdown();
         }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            NuevoProyectoWPF nuevoProy = new NuevoProyectoWPF();
+            nuevoProy.Show();
+        }
     }
 }

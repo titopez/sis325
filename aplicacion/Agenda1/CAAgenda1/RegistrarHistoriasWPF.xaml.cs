@@ -24,23 +24,26 @@ namespace CAAgenda1
         private String desc;
         private bool habilitar;
         private int prioridad;
-        private string nombrep;
+        //private string nombrep;
         private int Horas;
         private HistoriasCLN hcln = new HistoriasCLN();
         private Proyecto p = new Proyecto();
         private ProyectosCLN pcln = new ProyectosCLN();
-        Historia h = new Historia();
+        //private SprintCLN scln = new SprintCLN();
+        private Historia h = new Historia();
+        private int idProy;
         public delegate Point GetDrapDropPosition(IInputElement theElement);
         int prevRowIndex = -1;
 
-        public RegistrarHistoriasWPF()
+        public RegistrarHistoriasWPF(int id)
         {
             InitializeComponent();
             listarHistorias();
             hcln.ordenar();
+            idProy = id;
         }
 
-        Form2proyectoM fp = new Form2proyectoM();
+        //Form2proyectoM fp = new Form2proyectoM();
         private bool IstheMouseOnTargetRow(Visual theTarget, GetDrapDropPosition pos)
         {
             Rect posBounds = VisualTreeHelper.GetDescendantBounds(theTarget);
@@ -74,9 +77,9 @@ namespace CAAgenda1
             desc = tbDescripcion.Text;
             habilitar = chbHabilitar.IsChecked.Value;
             prioridad = int.Parse(cbPrioridad.Text);
-            nombrep = tbnombrep.Text;
+            //nombrep = tbnombrep.Text;
             Horas = int.Parse(tbHoras.Text);
-            p = pcln.getProyecto(nombrep);
+            p = pcln.getProyectoId(idProy);
             h.Descripcion = desc;
             h.Prioridad = prioridad;
             h.Habilitado = habilitar;
@@ -86,13 +89,21 @@ namespace CAAgenda1
             MessageBox.Show("La historia fue registrada exitosamente");
             listarHistorias();
             hcln.ordenar();
+            limpiar();
         }
         private void listarHistorias()
         {
-            //dgHistorias.ItemsSource = hcln.listar();
-            //dgHistorias.Columns[0].Visibility=0;
-            dgHistorias.ItemsSource = hcln.listar();
-            //dgHistorias.ItemsSource = hcln.ordenar();
+            List<Historia> listah = new List<Historia>();
+            List<Historia> listah2 = new List<Historia>();
+            listah = hcln.listar();
+            for(int i=0;i<listah.Count;i++)
+            {
+                if (listah[i].Proyecto_id == idProy)
+                {
+                    listah2.Add(listah[i]);
+                }
+            }
+            dgHistorias.ItemsSource = listah2;
         }
 
         private void bCancelar_Click(object sender, RoutedEventArgs e)
@@ -107,8 +118,8 @@ namespace CAAgenda1
 
         private void wRegistroHist_Loaded(object sender, RoutedEventArgs e)
         {
-            tbDescripcion.Text=fp.getnombrep();
-            dgHistorias.ItemsSource = hcln.ordenar();
+            tbnombrep.Text = pcln.getProyectoId(idProy).Nombre;
+            listarHistorias();
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
@@ -129,7 +140,7 @@ namespace CAAgenda1
         {
         }
 
-        private void btnNuevo_Click(object sender, RoutedEventArgs e)
+        private void limpiar()
         {
             tbDescripcion.Clear();
             cbPrioridad.Text = "";
@@ -140,8 +151,6 @@ namespace CAAgenda1
 
         private void wRegistroHist_Closed(object sender, EventArgs e)
         {
-            FormProyecto principal = new FormProyecto();
-            principal.Show();
             this.Hide();
         }
 
@@ -196,9 +205,22 @@ namespace CAAgenda1
             myhis.Insert(index, movedHis);
         }
 
-        private void tbIDH_TextChanged(object sender, TextChangedEventArgs e)
+        private void tbHoras_KeyDown(object sender, KeyEventArgs e)
         {
+            if (!(e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9))
+                e.Handled = true;
+        }
 
+        private void bCerrar_Click(object sender, RoutedEventArgs e)
+        {
+            new Form2proyectoM(idProy).Show();
+            this.Close();
+        }
+
+        private void bCrearSprint_Click(object sender, RoutedEventArgs e)
+        {
+            CrearSprintWPF cswpf = new CrearSprintWPF(idProy);
+            cswpf.Show();
         }
 
         

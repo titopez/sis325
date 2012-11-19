@@ -26,7 +26,8 @@ namespace CAAgenda1
         private String objetivo;
         private int caja_tiempo;
         private String Necesidad;
-        ProyectosCLN pcln = new ProyectosCLN();
+        //private SprintCLN scln = new SprintCLN();
+        private ProyectosCLN pcln = new ProyectosCLN();
         
         public NuevoProyectoWPF()
         {
@@ -36,6 +37,7 @@ namespace CAAgenda1
 
         private void bCrearProy_Click(object sender, RoutedEventArgs e)
         {
+            //creacion proyecto nuevo
             nombre = tbNuevoProy.Text;
             fechaIni = DateTime.Parse(dpFechaIni.SelectedDate.ToString());
             fechaFin = DateTime.Parse(dpFechaFin.SelectedDate.ToString());
@@ -56,7 +58,6 @@ namespace CAAgenda1
 
         private void bCancelar_Click(object sender, RoutedEventArgs e)
         {
-            (new FormProyecto()).Show();
             this.Hide();
         }
         private void limpiar()
@@ -65,6 +66,12 @@ namespace CAAgenda1
             tbObjetivo.Clear();
             tbCajatiempo.Clear();
             tbNecedidad.Clear();
+        }
+
+        private void tbCajatiempo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!(e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9))
+                e.Handled = true;
         }
     }
 }

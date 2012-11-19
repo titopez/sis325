@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 11/18/2012 12:32:20
--- Generated from EDMX file: D:\RepositoriosGit\sis325\aplicacion\Agenda1\CADAgenda1\ScrumBDModel.edmx
+-- Date Created: 11/19/2012 02:14:59
+-- Generated from EDMX file: D:\repositoriosGit\sis325\aplicacion\Agenda1\CADAgenda1\ScrumBDModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -17,25 +17,40 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_RolesDeUnProyecto]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Roles] DROP CONSTRAINT [FK_RolesDeUnProyecto];
+GO
 IF OBJECT_ID(N'[dbo].[FK_HistoriasDeUnProyecto]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Historias] DROP CONSTRAINT [FK_HistoriasDeUnProyecto];
 GO
-IF OBJECT_ID(N'[dbo].[FK_RolesDeUnProyecto]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Roles] DROP CONSTRAINT [FK_RolesDeUnProyecto];
+IF OBJECT_ID(N'[dbo].[FK_RolesdeTarea]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Tareas] DROP CONSTRAINT [FK_RolesdeTarea];
+GO
+IF OBJECT_ID(N'[dbo].[FK_TareasDeUnaHistoria]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Tareas] DROP CONSTRAINT [FK_TareasDeUnaHistoria];
+GO
+IF OBJECT_ID(N'[dbo].[FK_TareasDeUnSprint]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Tareas] DROP CONSTRAINT [FK_TareasDeUnSprint];
 GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[Historias]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Historias];
-GO
 IF OBJECT_ID(N'[dbo].[Proyectos]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Proyectos];
 GO
+IF OBJECT_ID(N'[dbo].[Historias]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Historias];
+GO
 IF OBJECT_ID(N'[dbo].[Roles]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Roles];
+GO
+IF OBJECT_ID(N'[dbo].[Tareas]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Tareas];
+GO
+IF OBJECT_ID(N'[dbo].[Sprints]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Sprints];
 GO
 
 -- --------------------------------------------------
@@ -61,8 +76,7 @@ CREATE TABLE [dbo].[Historias] (
     [Prioridad] int  NOT NULL,
     [Habilitado] bit  NOT NULL,
     [Proyecto_id] int  NOT NULL,
-    [Cantidad_Horas] int  NOT NULL,
-    [Sprint_id_Sprint] int  NOT NULL
+    [Cantidad_Horas] int  NOT NULL
 );
 GO
 
@@ -83,19 +97,20 @@ CREATE TABLE [dbo].[Tareas] (
     [Tipo] nvarchar(max)  NOT NULL,
     [Estado] nvarchar(max)  NOT NULL,
     [Horas] int  NOT NULL,
-    [Sprint_id_Sprint] int  NOT NULL,
+    [Historia_id] int  NOT NULL,
+    [Sprint_id] int  NOT NULL,
     [Rol_id] int  NOT NULL
 );
 GO
 
 -- Creating table 'Sprints'
 CREATE TABLE [dbo].[Sprints] (
-    [id_Sprint] int IDENTITY(1,1) NOT NULL,
+    [id] int IDENTITY(1,1) NOT NULL,
     [Inicio] datetime  NOT NULL,
     [Duracion] int  NOT NULL,
-    [Estado] nvarchar(max)  NOT NULL,
-    [Tareas_Pendientes] int  NOT NULL,
-    [Horas_Pendientes] int  NOT NULL
+    [Estado] nvarchar(max)  NULL,
+    [Tareas_Pendientes] int  NULL,
+    [Horas_Pendientes] int  NULL
 );
 GO
 
@@ -127,10 +142,10 @@ ADD CONSTRAINT [PK_Tareas]
     PRIMARY KEY CLUSTERED ([id_tarea] ASC);
 GO
 
--- Creating primary key on [id_Sprint] in table 'Sprints'
+-- Creating primary key on [id] in table 'Sprints'
 ALTER TABLE [dbo].[Sprints]
 ADD CONSTRAINT [PK_Sprints]
-    PRIMARY KEY CLUSTERED ([id_Sprint] ASC);
+    PRIMARY KEY CLUSTERED ([id] ASC);
 GO
 
 -- --------------------------------------------------
@@ -165,46 +180,46 @@ ON [dbo].[Historias]
     ([Proyecto_id]);
 GO
 
+-- Creating foreign key on [Historia_id] in table 'Tareas'
+ALTER TABLE [dbo].[Tareas]
+ADD CONSTRAINT [FK_TareasDeUnaHistoria]
+    FOREIGN KEY ([Historia_id])
+    REFERENCES [dbo].[Historias]
+        ([id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_TareasDeUnaHistoria'
+CREATE INDEX [IX_FK_TareasDeUnaHistoria]
+ON [dbo].[Tareas]
+    ([Historia_id]);
+GO
+
+-- Creating foreign key on [Sprint_id] in table 'Tareas'
+ALTER TABLE [dbo].[Tareas]
+ADD CONSTRAINT [FK_TareasDeUnSprint]
+    FOREIGN KEY ([Sprint_id])
+    REFERENCES [dbo].[Sprints]
+        ([id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_TareasDeUnSprint'
+CREATE INDEX [IX_FK_TareasDeUnSprint]
+ON [dbo].[Tareas]
+    ([Sprint_id]);
+GO
+
 -- Creating foreign key on [Rol_id] in table 'Tareas'
 ALTER TABLE [dbo].[Tareas]
-ADD CONSTRAINT [FK_RolesdeTarea]
+ADD CONSTRAINT [FK_ResponsableDeTares]
     FOREIGN KEY ([Rol_id])
     REFERENCES [dbo].[Roles]
         ([id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
--- Creating non-clustered index for FOREIGN KEY 'FK_RolesdeTarea'
-CREATE INDEX [IX_FK_RolesdeTarea]
+-- Creating non-clustered index for FOREIGN KEY 'FK_ResponsableDeTares'
+CREATE INDEX [IX_FK_ResponsableDeTares]
 ON [dbo].[Tareas]
     ([Rol_id]);
-GO
-
--- Creating foreign key on [Sprint_id_Sprint] in table 'Tareas'
-ALTER TABLE [dbo].[Tareas]
-ADD CONSTRAINT [FK_TareasdelSprint]
-    FOREIGN KEY ([Sprint_id_Sprint])
-    REFERENCES [dbo].[Sprints]
-        ([id_Sprint])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_TareasdelSprint'
-CREATE INDEX [IX_FK_TareasdelSprint]
-ON [dbo].[Tareas]
-    ([Sprint_id_Sprint]);
-GO
-
--- Creating foreign key on [Sprint_id_Sprint] in table 'Historias'
-ALTER TABLE [dbo].[Historias]
-ADD CONSTRAINT [FK_HistoriasdelSprint]
-    FOREIGN KEY ([Sprint_id_Sprint])
-    REFERENCES [dbo].[Sprints]
-        ([id_Sprint])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_HistoriasdelSprint'
-CREATE INDEX [IX_FK_HistoriasdelSprint]
-ON [dbo].[Historias]
-    ([Sprint_id_Sprint]);
 GO
 
 -- --------------------------------------------------

@@ -14,7 +14,7 @@ namespace CLNAgenda1
         }
         public void crearHistoria(Historia h)
         {
-            contexto.AddToHistorias(h);
+            contexto.Historias.AddObject(h);
             contexto.SaveChanges();
         }
         public Historia getHistoria(String descripcion)
@@ -49,10 +49,15 @@ namespace CLNAgenda1
         }
         public IQueryable<object> listar2()
         {
-           var resultado = from consulta in contexto.Historias
-                      select new { ID = consulta.id, DESCRIPCION = consulta.Descripcion,
-                              PRIORIDAD = consulta.Prioridad , HABILITADO = consulta.Habilitado,
-                                ID_PROYECTO = consulta.Proyecto_id};	 	
+            var resultado = from consulta in contexto.Historias
+                            select new
+                            {
+                                ID = consulta.id,
+                                DESCRIPCION = consulta.Descripcion,
+                                PRIORIDAD = consulta.Prioridad,
+                                HABILITADO = consulta.Habilitado,
+                                ID_PROYECTO = consulta.Proyecto_id
+                            };
             return resultado;
         }
         public IQueryable<object> ordenar()

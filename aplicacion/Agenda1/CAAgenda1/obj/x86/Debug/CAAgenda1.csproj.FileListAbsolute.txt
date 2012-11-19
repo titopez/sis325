@@ -69,3 +69,9 @@ D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\GestionarHi
 D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\Inicio.g.cs
 =======
 >>>>>>> 73f8b8c3d20270b7a17497e7d74bdcae884fdf8b
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\CrearSprintWPF.baml
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\CrearSprintWPF.g.cs
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\CrearRolWPF.baml
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\CrearTareaWPF.baml
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\CrearRolWPF.g.cs
+D:\repositoriosGit\sis325\aplicacion\Agenda1\CAAgenda1\obj\x86\Debug\CrearTareaWPF.g.cs
