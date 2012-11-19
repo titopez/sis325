@@ -1,0 +1,29 @@
+﻿<Window x:Class="CAAgenda1.CrearTareaWPF"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Crear tareas" Height="380" Width="421" Name="wCrearTarea" Loaded="wCrearTarea_Loaded">
+    <Grid>
+        <Label Content="Descripcion:" Height="28" HorizontalAlignment="Left" Margin="40,17,0,0" Name="lNombre" VerticalAlignment="Top" />
+        <Label Content="Responsable:" Height="28" HorizontalAlignment="Left" Margin="100,57,0,0" Name="lResponsable" VerticalAlignment="Top" />
+        <Label Content="Tipo:" Height="28" HorizontalAlignment="Left" Margin="143,94,0,0" Name="lTipo" VerticalAlignment="Top" />
+        <Label Content="Estado:" Height="28" HorizontalAlignment="Left" Margin="131,131,0,0" Name="lEstado" VerticalAlignment="Top" />
+        <Label Content="Historia:" Height="28" HorizontalAlignment="Left" Margin="126,205,0,0" Name="lHistoria" VerticalAlignment="Top" />
+        <Label Content="Sprint:" Height="28" HorizontalAlignment="Left" Margin="135,241,0,0" Name="lSprint" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="121,17,0,0" Name="tbNombre" VerticalAlignment="Top" Width="247" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="186,57,0,0" Name="cbResponsable" VerticalAlignment="Top" Width="143" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="186,94,0,0" Name="cbTipo" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Principal" />
+            <ComboBoxItem Content="Soporte" />
+        </ComboBox>
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="186,131,0,0" Name="cbEstado" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Pendiente" />
+            <ComboBoxItem Content="Terminado" />
+        </ComboBox>
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="184,243,0,0" Name="tbSprint" VerticalAlignment="Top" Width="56" />
+        <Label Content="Duración(Horas):" Height="28" HorizontalAlignment="Left" Margin="80,168,0,0" Name="lHoras" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="186,168,0,0" Name="tbHoras" VerticalAlignment="Top" Width="54" />
+        <Button Content="Añadir" Height="23" HorizontalAlignment="Left" Margin="121,295,0,0" Name="bCrear" VerticalAlignment="Top" Width="75" Click="bCrear_Click" />
+        <Button Content="Cancelar" Height="23" HorizontalAlignment="Left" Margin="219,295,0,0" Name="bCancelar" VerticalAlignment="Top" Width="75" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="186,205,0,0" Name="cbHistorias" VerticalAlignment="Top" Width="120" />
+    </Grid>
+</Window>
