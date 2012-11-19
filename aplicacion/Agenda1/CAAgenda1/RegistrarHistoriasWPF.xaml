@@ -12,7 +12,7 @@
         </Grid.Background>
         <Label Content="Descripcion:" Height="28" HorizontalAlignment="Left" Margin="77,37,0,0" Name="lDescripcion" VerticalAlignment="Top" />
         <Label Content="Prioridad:" Height="28" HorizontalAlignment="Left" Margin="90,131,0,0" Name="lPrioridad" VerticalAlignment="Top" />
-        <CheckBox Content="Habilitar" Height="16" HorizontalAlignment="Left" Margin="382,131,0,0" Name="chbHabilitar" VerticalAlignment="Top" IsChecked="{Binding SelectedItem.Habilitado, ElementName=dgHistorias}" />
+        <CheckBox Content="Habilitar" Height="16" HorizontalAlignment="Left" Margin="382,131,0,0" Name="chbHabilitar" VerticalAlignment="Top" IsChecked="{Binding SelectedItem.Habilitado, ElementName=dgHistorias}" Checked="chbHabilitar_Checked" Click="chbHabilitar_Click" />
         <TextBox Height="77" HorizontalAlignment="Right" Margin="0,39,66,0" Name="tbDescripcion" VerticalAlignment="Top" Width="398" AcceptsReturn="True" Text="{Binding SelectedItem.Descripcion, ElementName=dgHistorias}" Grid.ColumnSpan="2" />
         <Button Content="Registrar Historia" Height="42" HorizontalAlignment="Left" Margin="120,206,0,0" Name="bRegistrar" VerticalAlignment="Top" Width="113" Click="bRegistrar_Click" />
         <Button Content="Eliminar" Height="42" HorizontalAlignment="Left" Margin="57,206,0,0" Name="bCancelar" VerticalAlignment="Top" Width="92" Click="bCancelar_Click" Grid.Column="1" />
@@ -23,7 +23,7 @@
             <ComboBoxItem Content="4" />
             <ComboBoxItem Content="5" />
         </ComboBox>
-        <DataGrid AutoGenerateColumns="False" Margin="12,270,12,0" Name="dgHistorias" IsReadOnly="True" Height="174" VerticalAlignment="Top" SelectionChanged="dgHistorias_SelectionChanged" AllowDrop="True" Grid.ColumnSpan="2" PreviewMouseDown="dgHistorias_PreviewMouseDown" PreviewMouseLeftButtonDown="dgHistorias_PreviewMouseLeftButtonDown" Drop="dgHistorias_Drop">
+        <DataGrid AutoGenerateColumns="False" Margin="12,254,12,0" Name="dgHistorias" IsReadOnly="True" Height="174" VerticalAlignment="Top" SelectionChanged="dgHistorias_SelectionChanged" AllowDrop="True" Grid.ColumnSpan="2" PreviewMouseDown="dgHistorias_PreviewMouseDown" PreviewMouseLeftButtonDown="dgHistorias_PreviewMouseLeftButtonDown" Drop="dgHistorias_Drop">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding id}" Header="Id" IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding Descripcion}" Header="Descripcion" IsReadOnly="True" Width="300"/>
@@ -41,5 +41,6 @@
         <TextBox Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="129,0,0,0" Name="tbIDH" VerticalAlignment="Top" Width="32" IsEnabled="False" Text="{Binding SelectedItem.id, ElementName=dgHistorias}" />
         <Button Content="Cerrar" Height="42" HorizontalAlignment="Left" Margin="12,206,0,0" Name="bCerrar" VerticalAlignment="Top" Width="102" Click="bCerrar_Click" />
         <Button Content="Crear Sprint" Height="42" HorizontalAlignment="Left" Margin="250,206,0,0" Name="bCrearSprint" VerticalAlignment="Top" Width="116" Click="bCrearSprint_Click" />
+        <Button Content="Crear Tareas" Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="58,164,0,0" Name="bCrearTareas" VerticalAlignment="Top" Width="75" Click="bCrearTareas_Click" IsEnabled="False" />
     </Grid>
 </Window>

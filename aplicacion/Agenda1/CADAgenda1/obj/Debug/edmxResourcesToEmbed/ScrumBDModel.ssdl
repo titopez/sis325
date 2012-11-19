@@ -26,6 +26,10 @@
       <End Role="Rol" EntitySet="Roles" />
       <End Role="Tarea" EntitySet="Tareas" />
     </AssociationSet>
+    <AssociationSet Name="SprintsDeUnProyecto" Association="ScrumBDModel.Store.SprintsDeUnProyecto">
+      <End Role="Proyecto" EntitySet="Proyectos" />
+      <End Role="Sprint" EntitySet="Sprints" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Proyectos">
     <Key>
@@ -64,7 +68,7 @@
     <Key>
       <PropertyRef Name="id_tarea" />
     </Key>
-    <Property Name="id_tarea" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_tarea" Type="int" Nullable="false" />
     <Property Name="Nombre_Tarea" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Tipo" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Estado" Type="nvarchar(max)" Nullable="false" />
@@ -83,6 +87,9 @@
     <Property Name="Estado" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Tareas_Pendientes" Type="int" Nullable="true" />
     <Property Name="Horas_Pendientes" Type="int" Nullable="true" />
+    <Property Name="Objetivo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Jornada" Type="int" Nullable="true" />
+    <Property Name="Proyecto_id" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="RolesDeUnProyecto">
     <End Role="Proyecto" Type="ScrumBDModel.Store.Proyectos" Multiplicity="1" />
@@ -141,6 +148,18 @@
       </Principal>
       <Dependent Role="Tarea">
         <PropertyRef Name="Rol_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SprintsDeUnProyecto">
+    <End Role="Proyecto" Type="ScrumBDModel.Store.Proyectos" Multiplicity="1" />
+    <End Role="Sprint" Type="ScrumBDModel.Store.Sprints" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proyecto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Sprint">
+        <PropertyRef Name="Proyecto_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

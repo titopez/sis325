@@ -23,6 +23,13 @@ namespace CLNAgenda1
             h = contexto.Historias.FirstOrDefault(consulta => consulta.Descripcion == descripcion);
             return h;
         }
+
+        public Historia getHistoriaId(int id)
+        {
+            Historia h = new Historia();
+            h = contexto.Historias.FirstOrDefault(consulta => consulta.id == id);
+            return h;
+        }
         public void eliminarHistoria(Historia h)
         {
             contexto.Historias.DeleteObject(h);

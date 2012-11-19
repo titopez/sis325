@@ -44,6 +44,13 @@ namespace CLNAgenda1
             return s;
         }
 
+        public Sprint getSprintActivo(int idP, String estado)
+        {
+            Sprint s = new Sprint();
+            s = contexto.Sprints.FirstOrDefault(consulta => consulta.Proyecto_id == idP && consulta.Estado == estado);
+            return s;
+        }
+
         public Sprint buscarSprintEstado(String estado)
         {
             Sprint s = new Sprint();

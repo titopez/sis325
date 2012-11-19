@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 11/19/2012 02:14:59
+-- Date Created: 11/19/2012 10:01:32
 -- Generated from EDMX file: D:\repositoriosGit\sis325\aplicacion\Agenda1\CADAgenda1\ScrumBDModel.edmx
 -- --------------------------------------------------
 
@@ -23,14 +23,14 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_HistoriasDeUnProyecto]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Historias] DROP CONSTRAINT [FK_HistoriasDeUnProyecto];
 GO
-IF OBJECT_ID(N'[dbo].[FK_RolesdeTarea]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Tareas] DROP CONSTRAINT [FK_RolesdeTarea];
-GO
 IF OBJECT_ID(N'[dbo].[FK_TareasDeUnaHistoria]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Tareas] DROP CONSTRAINT [FK_TareasDeUnaHistoria];
 GO
 IF OBJECT_ID(N'[dbo].[FK_TareasDeUnSprint]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Tareas] DROP CONSTRAINT [FK_TareasDeUnSprint];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ResponsableDeTares]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Tareas] DROP CONSTRAINT [FK_ResponsableDeTares];
 GO
 
 -- --------------------------------------------------
@@ -92,7 +92,7 @@ GO
 
 -- Creating table 'Tareas'
 CREATE TABLE [dbo].[Tareas] (
-    [id_tarea] int IDENTITY(1,1) NOT NULL,
+    [id_tarea] int  NOT NULL,
     [Nombre_Tarea] nvarchar(max)  NOT NULL,
     [Tipo] nvarchar(max)  NOT NULL,
     [Estado] nvarchar(max)  NOT NULL,
@@ -110,7 +110,10 @@ CREATE TABLE [dbo].[Sprints] (
     [Duracion] int  NOT NULL,
     [Estado] nvarchar(max)  NULL,
     [Tareas_Pendientes] int  NULL,
-    [Horas_Pendientes] int  NULL
+    [Horas_Pendientes] int  NULL,
+    [Objetivo] nvarchar(max)  NOT NULL,
+    [Jornada] int  NULL,
+    [Proyecto_id] int  NOT NULL
 );
 GO
 
@@ -220,6 +223,20 @@ ADD CONSTRAINT [FK_ResponsableDeTares]
 CREATE INDEX [IX_FK_ResponsableDeTares]
 ON [dbo].[Tareas]
     ([Rol_id]);
+GO
+
+-- Creating foreign key on [Proyecto_id] in table 'Sprints'
+ALTER TABLE [dbo].[Sprints]
+ADD CONSTRAINT [FK_SprintsDeUnProyecto]
+    FOREIGN KEY ([Proyecto_id])
+    REFERENCES [dbo].[Proyectos]
+        ([id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_SprintsDeUnProyecto'
+CREATE INDEX [IX_FK_SprintsDeUnProyecto]
+ON [dbo].[Sprints]
+    ([Proyecto_id]);
 GO
 
 -- --------------------------------------------------

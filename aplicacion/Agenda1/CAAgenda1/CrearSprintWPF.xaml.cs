@@ -36,6 +36,8 @@ namespace CAAgenda1
             sprint.Estado = "Activo";
             sprint.Horas_Pendientes = 0;
             sprint.Tareas_Pendientes = 0;
+            sprint.Objetivo = tbObjetivo.ToString();
+            sprint.Proyecto_id = idProy;
             sprintcln.crearSprint(sprint);
             MessageBox.Show("Sprint creado correctamente");
             limpiar();
@@ -50,11 +52,5 @@ namespace CAAgenda1
             this.Close();
         }
 
-        private void bCrearTareas_Click(object sender, RoutedEventArgs e)
-        {
-            int idSprint = sprint.id;
-            CrearTareaWPF twpf = new CrearTareaWPF(idProy,idSprint);
-            twpf.Show();
-        }
     }
 }

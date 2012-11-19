@@ -154,6 +154,9 @@
     <Resource Include="Images\Android_Wallpaper_by_clondike7.png" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\CADAgenda1\CADAgenda1.csproj">
       <Project>{A162A5FE-4DF2-43BA-ACE5-7314D3AA2A22}</Project>
       <Name>CADAgenda1</Name>
@@ -162,9 +165,6 @@
       <Project>{4BA01F14-1A02-4CAD-BA2C-363DEDD12892}</Project>
       <Name>CLNAgenda1</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

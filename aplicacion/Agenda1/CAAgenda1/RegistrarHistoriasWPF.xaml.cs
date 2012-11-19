@@ -223,6 +223,40 @@ namespace CAAgenda1
             cswpf.Show();
         }
 
+        private void bCrearTareas_Click(object sender, RoutedEventArgs e)
+        {
+            CrearTareaWPF cwpf = new CrearTareaWPF(idProy, int.Parse(tbIDH.Text));
+            cwpf.Show();
+        }
+
+        private void chbHabilitar_Checked(object sender, RoutedEventArgs e)
+        {
+            if (chbHabilitar.IsChecked == true)
+            {
+                bCrearTareas.IsEnabled = true;
+            }
+            else
+            {
+                bCrearTareas.IsEnabled = false;
+            }
+        }
+
+        private void chbHabilitar_Click(object sender, RoutedEventArgs e)
+        {
+            if (chbHabilitar.IsChecked == true)
+            {
+                Historia h = new Historia();
+                h = hcln.getHistoriaId(int.Parse(tbIDH.Text));
+                h.Habilitado = true;
+                hcln.modificarHistoria(h);
+                bCrearTareas.IsEnabled = true;
+            }
+            else
+            {
+                bCrearTareas.IsEnabled = false;
+            }
+        }
+
         
     }
 }

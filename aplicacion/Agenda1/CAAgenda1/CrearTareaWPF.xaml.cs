@@ -25,23 +25,24 @@ namespace CAAgenda1
         private RolesCLN rcln = new RolesCLN();
         private HistoriasCLN hcln = new HistoriasCLN();
         private SprintCLN scln = new SprintCLN();
-        private int idSprint;
-        public CrearTareaWPF(int id, int ids)
+        private int idHis;
+        public CrearTareaWPF(int id, int idH)
         {
             InitializeComponent();
             idProy = id;
-            idSprint = ids;
+            idHis = idH;
         }
 
         private void bCrear_Click(object sender, RoutedEventArgs e)
         {
             Tarea t = new Tarea();
+            t.id_tarea = int.Parse(tbIdTarea.Text);
             t.Nombre_Tarea = tbNombre.Text;
             t.Estado = cbEstado.SelectedItem.ToString();
             t.Rol_id = rcln.getRolNombre(cbResponsable.SelectedItem.ToString()).id;
             t.Tipo = cbTipo.SelectedItem.ToString();
             t.Horas = int.Parse(tbHoras.Text);
-            t.Historia_id = int.Parse(cbHistorias.SelectedItem.ToString());
+            t.Historia_id = int.Parse(tbHistoria.Text.ToString());
             //adicionamos la cantidad de tareas al sprint y ademas
             //incrementamos la cantidad de horas para el sprint de todas las tareas
             t.Sprint_id = int.Parse(tbSprint.Text.ToString());
@@ -54,6 +55,7 @@ namespace CAAgenda1
             tcln.crearTarea(t);
             MessageBox.Show("Tarea asignada exitosamente");
             limpiar();
+            //cargarDatos();
 
         }
 
@@ -61,25 +63,22 @@ namespace CAAgenda1
         {
             tbHoras.Text = "";
             tbNombre.Text = "";
-            tbSprint.Text = "";
+            tbIdTarea.Text = "";
         }
 
         private void wCrearTarea_Loaded(object sender, RoutedEventArgs e)
         {
-            List<Historia> listh = new List<Historia>();
-            listh = hcln.listar();
+            cargarDatos();
+ 
+        }
+
+        private void cargarDatos()
+        {
+            tbSprint.Text = scln.getSprintActivo(idProy, "Activo").id.ToString();
+            tbHistoria.Text = idHis.ToString();
             string valorItem;
-            for (int i = 0; i < listh.Count; i++)
-            {
-                if (idProy == listh[i].Proyecto_id)
-                {
-                    valorItem = listh[i].id.ToString();
-                    cbHistorias.Items.Add(valorItem);
-                }
-            }
             List<Rol> listr = new List<Rol>();
             listr = rcln.listarRoles();
-           
             for (int i = 0; i <= listr.Count; i++)
             {
                 if (idProy == listr[i].Proyecto_id)
@@ -87,8 +86,7 @@ namespace CAAgenda1
                     valorItem = listr[i].NombreCompleto;
                     cbResponsable.Items.Add(valorItem);
                 }
-            }    
-            tbSprint.Text = idSprint.ToString();
+            }
         }
     }
 }

@@ -60,6 +60,9 @@
           <ScalarProperty Name="Estado" ColumnName="Estado" />
           <ScalarProperty Name="Tareas_Pendientes" ColumnName="Tareas_Pendientes" />
           <ScalarProperty Name="Horas_Pendientes" ColumnName="Horas_Pendientes" />
+          <ScalarProperty Name="Objetivo" ColumnName="Objetivo" />
+          <ScalarProperty Name="Jornada" ColumnName="Jornada" />
+          <ScalarProperty Name="Proyecto_id" ColumnName="Proyecto_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
