@@ -1,0 +1,17 @@
+﻿<Window x:Class="CAAgenda1.CrearRolWPF"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Creacion de un nuevo Rol" Height="288" Width="444" Name="wCrearRol" Loaded="wCrearRol_Loaded">
+    <Grid>
+        <Label Content="Nombre Completo:" Height="28" HorizontalAlignment="Left" Margin="55,27,0,0" Name="lNombre" VerticalAlignment="Top" />
+        <Label Content="Rol:" Height="28" HorizontalAlignment="Left" Margin="137,64,0,0" Name="lRol" VerticalAlignment="Top" />
+        <Label Content="Rol secundario:" Height="28" HorizontalAlignment="Left" Margin="76,102,0,0" Name="lRolSecundario" VerticalAlignment="Top" />
+        <Label Content="Proyecto:" Height="28" HorizontalAlignment="Left" Margin="108,141,0,0" Name="lProyecto" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="173,27,0,0" Name="tbNombre" VerticalAlignment="Top" Width="178" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="173,64,0,0" Name="tbRol" VerticalAlignment="Top" Width="134" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="173,102,0,0" Name="tbRolSecundario" VerticalAlignment="Top" Width="134" />
+        <Button Content="Crear" Height="23" HorizontalAlignment="Left" Margin="108,195,0,0" Name="bCrearRol" VerticalAlignment="Top" Width="75" Click="bCrearRol_Click" />
+        <Button Content="Cancelar" Height="23" HorizontalAlignment="Right" Margin="0,195,115,0" Name="bCancelar" VerticalAlignment="Top" Width="75" Click="bCancelar_Click" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="173,141,0,0" Name="tbProyecto" VerticalAlignment="Top" Width="232" />
+    </Grid>
+</Window>
